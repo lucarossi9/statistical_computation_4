@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Data driven analysis of political figures popularity
-subtitle:  Team fix-it
-cover-img: assets/img/american-gov.jpg
-thumbnail-img: assets/img/american-gov.jpg
-share-img: assets/img/american-gov.jpg
+title: Cell cycle prediction
+subtitle:  An unsupervised approach
+cover-img: assets/img/cell-cycle-cover-img.jpg
+thumbnail-img: assets/img/cell-cycle-cover-img.jpg
+share-img: assets/img/cell-cycle-cover-img.jpg
 use-site-title: true
 ---
 
