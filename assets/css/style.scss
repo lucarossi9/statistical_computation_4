@@ -1,0 +1,10 @@
+---
+---
+@import "{{ site.theme }}";
+/* "{{ site.theme }}" = Your theme name */
+/* Eg: @import 'jekyll-theme-cayman'; */
+
+/* Your css rules goes after this */
+.page-header {
+    background: "/assets/images/american-gov.jpg";
+}
