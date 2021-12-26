@@ -9,7 +9,7 @@
 title: Predicting cell cycle, an unsupervised approach
 
 # Your name to show in the footer
-author: Rossi L., Padovano F., Bollero F., Mulet P., Mariantoni M.
+author: Rossi, Padovano, Bollero, Mulet, Mariantoni
 
 # --- List of links in the navigation bar --- #
 
@@ -37,7 +37,7 @@ round-avatar: true
 # Select the social network links that you want to show in the footer.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "goncalo.cavacogomes@epfl.ch"
+  email: "l.rossi@epfl.ch"
 #  facebook: deanattali
 #  github: daattali
 #  twitter: daattali
