@@ -26,6 +26,5 @@ Cell cycle is the most fundamental biological process underlying the existence a
 
 * **G0** is a resting phase. In this phase, the cell has left the cycle and has stopped dividing. The cell cycle always starts with this phase. Cells in multicellular eukaryotes generally enter the quiescent G0 state from G1 and may remain quiescent for long periods of time, possibly indefinitely.
 * **G1** is the first phase of the interphase (the phases between two M phases). G1 indicates the end of the previous M phase until the beginning of DNA synthesis, it is often also called the growth phase. During G1 phase, the biosynthetic activities of the cell resume at a high rate. The cell increases its supply of proteins, increases the number of organelles, and grows in size. At the end of G1 phase, a cell has three options.
-
--To continue cell cycle and enter S phase
--Stop cell cycle and enter G0 phase for undergoing differentiation.
+* To continue cell cycle and enter S phase
+* Stop cell cycle and enter G0 phase for undergoing differentiation.
