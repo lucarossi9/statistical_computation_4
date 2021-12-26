@@ -30,4 +30,4 @@ Cell cycle is the most fundamental biological process underlying the existence a
 * **G2** phase in which the cell checks if there is any DNA damage within the chromosomes. In case of any anomaly, the cell will repair the DNA or trigger the apoptosis of the cell.
 * **M** (mitotic phase) which consists of nuclear division. Mitosis is the process by which a eukaryotic cell separates itself into two identical daughter cells.
 
-# Task explanation and dataset explanation
+# Task and dataset explanation
