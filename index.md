@@ -17,6 +17,4 @@ Advances in omics technologies make it possible to study cellular dynamics, prov
 
 Cell cycle is the most fundamental biological process underlying the existence and propagation of life in time and space. The cell cycle is a 4-stage process consisting of Gap 1 (G1), synthesis (S), Gap 2 (G2) and mitosis (M), which a cell undergoes as it grows and divides. After completing the cycle, the cell either starts the process again from G1 or exits the cycle through G0. From G0, the cell can undergo terminal differentiation.
 
-
-Image.asset( 'assets/img/Cell_Cycle.png',    height: 10,    width: 10, )
-![image](assets/img/Cell_Cycle.png)
+![image](assets/img/Cell_Cycle.png=100x20)
