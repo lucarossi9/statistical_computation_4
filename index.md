@@ -30,6 +30,7 @@ Cell cycle is the most fundamental biological process underlying the existence a
 * **G2** phase in which the cell checks if there is any DNA damage within the chromosomes. In case of any anomaly, the cell will repair the DNA or trigger the apoptosis of the cell.
 * **M** (mitotic phase) which consists of nuclear division. Mitosis is the process by which a eukaryotic cell separates itself into two identical daughter cells.
 
-# Task and dataset explanation
+# Dataset description
 
+The dataset used in our analysis is CHLA9.loom, containing various information about more than 5000 different cells. Notice that the initial format of our data is a loom format, designed to efficiently hold large omics datasets. Each column of the dataset described a different cell and it is named and identified by a unique string, part of this string corresponds to the DNA sequence of the cell. For each column of the dataset (for each cell) we have more than 60000 positive natural numbers associated to it. Each of these numbers represents a specific count of a quantity inside the cell. Additionally, for each cell we have an attribute called "TotalUMIs" representing the sum of the aforementioned counts. This number is often introduced in omic dataset since the most of the counts are zero (our dataset is sparse).
 
