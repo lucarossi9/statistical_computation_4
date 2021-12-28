@@ -49,6 +49,9 @@ The dataset used in our analysis is CHLA9.loom, containing information about mor
 
 ![image](assets/img/Dataset_sparsity.png)
 
+{:.Sparsity of the dataset matrix}
+
+
 Each row of our dataset is indexed by a list of keys. Among them, we decided to filter our initial dataset so that it contains only the cells whose genetype is 'protein_encoding' since, according to literature, it is generally easier to predict the phase of their cycle.
 
 Moreover, we filtered the dataset using the attributed "TotalUmis", deleting all the cells with a number of counts outside the 25-75% interquantile range. Here below we show the boxplot used to filter the dataset.
