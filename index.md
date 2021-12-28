@@ -93,11 +93,7 @@ As shown in the image, the autoncoder is essentially composed of two distinct pa
 $$
 \sum_{n=1}^{N}||\mathbf{y}_{n}-\hat{\mathbf{y}}_{n}||^{2}
 $$
-is minimized. Notice that, in order to prevent overfitting, a regularization term is often included in the objective function, the function then becomes 
-$$
-\sum_{n=1}^{N}|| y_n - \hat{y}_n||^2 + \lambda ||x||^2
-$$
-
+is minimized. Notice that, in order to prevent overfitting, a regularization term is often included in the objective function.
 Additionally, autoencoders are powerful methods for dimensionality reduction. Indeed, it can be shown that if we don't apply any nonlinear activation function in the decoder part, the results of PCA and autoencoders (the representation $$z$$) are the same.
 
 For our purpose, we create a standard multi-layer perceptron with hyperbolic tangent activation functions, in the decoder we use cosine and sine as the activation functions in the first layer, followed by a second layer performing linear transformations. We use the least square error as the optimization target with L2 regularization, formally:
@@ -105,4 +101,4 @@ $$
 \underset{\mathbf{w}_{i}, \mathbf{v}}{\operatorname{argmin}} \sum_{n=1}^{N}||\mathbf{y}_{n}-\hat{\mathbf{y}}_{n}||_{2}^{2}+\sum_{i} \alpha_{i}||\mathbf{W}_{i}||_{L}^{2}+\beta||\mathbf{V}||_{L}^{2}
 $$
 
-The network is implemented using Keras with TensorFlow, which optimizes the parameters using gradient descent.
+Where $$W$$ is the weight matrix and $$V$$ is the bias term of the layers/neurons of our neural network. The network is implemented using Keras with TensorFlow, which optimizes the parameters using gradient descent.
