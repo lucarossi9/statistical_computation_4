@@ -104,8 +104,8 @@ $$
 
 #  GPLVM
 --------------------------------
-The Gaussian Process Latent Variable Model (GPLVM) is a dimensionality reduction method that uses a Gaussian process to learn a low-dimensional representation of (potentially) high-dimensional data. A latent variable model generally refers to a statistical model that relates a set of variables (so-called manifest variables) to a set of latent variables under the assumption that the responses on the manifest variables are controlled by the latent variables. Its goal is to learn the low dimensional representation $$X^{N\times Q}$$ of the data matrix $$Y^{N\times D}$$ , where N and D are the number and dimensionality of training samples, respectively, and Q<<D. The generation process of the ith training sample yi is
+The Gaussian Process Latent Variable Model (GPLVM) is a dimensionality reduction method that uses a Gaussian process to learn a low-dimensional representation of (potentially) high-dimensional data. A latent variable model generally refers to a statistical model that relates a set of variables (so-called manifest variables) to a set of latent variables under the assumption that the responses on the manifest variables are controlled by the latent variables. The GPLVM goal is to learn the low dimensional representation $$X^{N\times Q}$$ of the data matrix $$Y^{N\times D}$$ , where N and D are the number and dimensionality of training samples, respectively, and Q<<D. The generation process of the training sample $$y_i$$ is:
 $$
 y_i = f(x_i)+ \epsilon
 $$
-where $\epsilon$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sigma^2)$$.
+where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sigma^2)$$.
