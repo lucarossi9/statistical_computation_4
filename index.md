@@ -81,6 +81,11 @@ We will now describe how these methods work, we will discuss the structure and t
 # Autoencoders
 -----------------------------------------------------------------
 
+Autoencoders are an unsupervised learning technique in which neural networks are used for the task of representation learning. Specifically, a neural network architecture will be designed so that we have a bottleneck in the network which forces a compressed knowledge representation of the original input. 
+
+As shown in the image, 
+
+
 The objective is to infer pseudo-time/embedding $$\mathbf{X}_n$$ for cell $$n$$ from its transcriptome profile $$\mathbf{y}_n$$ a column vector containing the expression
 levels of G genes. To do that we search for a transformation $$\mathbf{x}_{n}=\mathcal{F}\left(\mathbf{y}_{n}\right)=\mathbf{W} \mathbf{y}_{n}$$ and an inverse transformation $$\hat{\mathbf{y}}_{n}=\mathcal{F}^{-1}\left(\mathbf{x}_{n}\right)=\mathbf{W}^{\mathrm{T}} \mathbf{x}_{n}$$, such that the total error $$\sum_{n=1}^{N}||\mathbf{y}_{n}-\hat{\mathbf{y}}_{n}||^{2}$$ is minimized. In particular we are looking for transformation $$\mathcal{F}^{-1}(\cdot)$$ and $$\mathcal{F}(\cdot)$$ such that they are nonlinear periodic functions and therefore sensitive to circular trajectories.
 To extrapolate this non-linear transformation we applied a machine learning technique called Autoencoder, specifically an asymmetric Autoencoder. In the encoder, we use a standard multi-layer perceptron with hyperbolic tangent activation functions, in the decoder we use cosine and sine as the activation functions in the first layer, followed by a second layer performing linear transformations. We use the least square error as the optimization target with L2 regularization, formally:
