@@ -10,6 +10,7 @@ use-site-title: true
 
 
 # Abstract
+------------------------------------------------------
 
 Advances in omics technologies make it possible to study cellular dynamics, providing accurate information on which genes encoded in our DNA are turned on or off in the continuously changing transcriptome. In particular, RNA-seq provides a powerful means to analyze molecular mechanisms underlying cell-state transitions, leading to an unprecedented opportunity to reveal latent biological processes. As a result, the reconstruction of cell development processes from RNA sequences has attracted much attention in recent years. Still, it remains a challenge due to the heterogeneous nature of the processes. The underlying idea in most methods proposed is that there is a biological process responsible for the main variations in the data. Then the goal is to infer the trajectory of that process in the gene expression space so that its effects can be removed. It allows the delineation of other cell subpopulations, which can be crucial to studying tumor evolution. This project explores computational techniques for pseudo-time inference of the cell cycle process from RNA sequences. This study presents different unsupervised approaches to this problem: an autoencoder approach (), a Generetive adversarial learning approach () and a Bayesian Gaussian process latent variable model based approach ().
 
@@ -73,9 +74,12 @@ The goal of our project will be to determine the phase of the cells using the de
 * Autoencoders
 * Autoencoders with residual networks
 * Gaussian process latent variable model (GPLVM)
+
+Let us first of all give some mathematical rigor to the problem. Let us call $$x_n$$ the feature vector of the cell $$n$$ (the columns of the dataset matrix), our goal is to determine an embedding mapping $$\phi : X \to Y $$ such that $$\phi(x_n) = y_n$$ where $$X$$ is the feature space, $$Y$$ is the phase space and $$y_n$$ is the phase of the cell $$n$$. Notice that the dimensionality of the feature space $$X$$ is generally very large (in our case $$60000$$) while the $$Y$$ space is unidimensional and can be considered homeomorphic to the space $$S_1$$: the unitary circle in the $$xy$$ plane.
 We will now describe how this methods work and the obtained results on our specific case.
 
 # Autoencoders
+-----------------------------------------------------------------
 
 The objective is to infer pseudo-time/embedding $$\mathbf{X}_n$$ for cell $$n$$ from its transcriptome profile $$\mathbf{y}_n$$ a column vector containing the expression
 levels of G genes. To do that we search for a transformation $$\mathbf{x}_{n}=\mathcal{F}\left(\mathbf{y}_{n}\right)=\mathbf{W} \mathbf{y}_{n}$$ and an inverse transformation $$\hat{\mathbf{y}}_{n}=\mathcal{F}^{-1}\left(\mathbf{x}_{n}\right)=\mathbf{W}^{\mathrm{T}} \mathbf{x}_{n}$$, such that the total error $$\sum_{n=1}^{N}||\mathbf{y}_{n}-\hat{\mathbf{y}}_{n}||^{2}$$ is minimized. In particular we are looking for transformation $$\mathcal{F}^{-1}(\cdot)$$ and $$\mathcal{F}(\cdot)$$ such that they are nonlinear periodic functions and therefore sensitive to circular trajectories.
