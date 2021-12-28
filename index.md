@@ -26,7 +26,7 @@ Cell cycle is the most fundamental biological process underlying the existence a
 
 | ![cell_cycle](assets/img/Cell_Cycle.png) | 
 |:--:| 
-| *cell_cycle* |
+| *cell cycle* |
 
 
 * **G0** is a resting phase. In this phase, the cell has left the cycle and has stopped dividing. The cell cycle always starts with this phase. Cells in multicellular eukaryotes generally enter the quiescent G0 state from G1 and may remain quiescent for long periods of time, possibly indefinitely.
@@ -34,6 +34,7 @@ Cell cycle is the most fundamental biological process underlying the existence a
 * **S** phase characterized by DNA replication and protein synthesis as well as a rapid cell growth. 
 * **G2** phase in which the cell checks if there is any DNA damage within the chromosomes. In case of any anomaly, the cell will repair the DNA or trigger the apoptosis of the cell.
 * **M** (mitotic phase) which consists of nuclear division. Mitosis is the process by which a eukaryotic cell separates itself into two identical daughter cells.
+
 
 # Dataset description and preprocessing
 ---------------------------------------------------------------
@@ -64,3 +65,22 @@ Moreover, we filtered the dataset using the attributed "TotalUmis", deleting all
 The reason why we filtered the cells with a too small or too large number of genes is due to the fact that the phase of those cell could be more difficult to determine when the number of these observed genes does not lie inside the 25-75%. Indeed, if the count was outside this range, we could have too few or too many genes to take into account in our future models and therefore we could easily underfit or overfit the data.
 Moreover, we removed from our dataset the half of the genes of our dataset (half of the rows) that had the bigger number of zeros inside them because, with the same argument as before, we would like to focus on the genes which are sufficiently observed in our dataset. 
 Finally, as suggested by our supervisor, we applied a standardization technique often used in omic domain. For each cell, we divided each count of genes (each column of our dataframe) by the total number of the counts of the genes inside the cell. In this way we now have to deal with real values in the interval [0,1] instead of discrete values which could cause problems when applying Machine Learning models to them. Additionally, since we had values really close to zero in the entries of our dataframe, we added to all the entries the minimum value in all the entries of the dataframe and, subsequently, we applied a log transformation elementwise. This standardizing procedure will allow us to work with real values sufficiently far from zero, allowing us to avoid numerical issues.
+
+# Task and methods description
+---------------------------------------------------------------
+
+The goal of our project will be to determine the phase of the cells using the described dataset. To this end, we will use different unsupervised machine learning techniques:
+* Autoencoders
+* Autoencoders with residual networks
+* Gaussian process latent variable model (GPLVM)
+We will now describe how this methods work and the obtained results on our specific case.
+
+# Autoencoders
+
+The objective is to infer pseudo-time/embedding $\mathbf{X}_n$ for cell $n$ from its transcriptome profile $\mathbf{y}_n$ a column vector containing the expression
+levels of G genes. To do that we search for a transformation $\mathbf{x}_{n}=\mathcal{F}\left(\mathbf{y}_{n}\right)=\mathbf{W} \mathbf{y}_{n}$ and an inverse transformation $\hat{\mathbf{y}}_{n}=\mathcal{F}^{-1}\left(\mathbf{x}_{n}\right)=\mathbf{W}^{\mathrm{T}} \mathbf{x}_{n}$, such that the total error $\sum_{n=1}^{N}||\mathbf{y}_{n}-\hat{\mathbf{y}}_{n}||^{2}$ is minimized. In particular we are looking for transformation $\mathcal{F}^{-1}(\cdot)$ and $\mathcal{F}(\cdot)$ such that they are nonlinear periodic functions and therefore sensitive to circular trajectories.
+To extrapolate this non-linear transformation we applied a machine learning technique called Autoencoder, specifically an asymmetric Autoencoder. In the encoder, we use a standard multi-layer perceptron with hyperbolic tangent activation functions, in the decoder we use cosine and sine as the activation functions in the first layer, followed by a second layer performing linear transformations. We use the least square error as the optimization target with L2 regularization, formally:
+$$
+\underset{\mathbf{w}_{i}, \mathbf{v}}{\operatorname{argmin}} \sum_{n=1}^{N}||\mathbf{y}_{n}-\hat{\mathbf{y}}_{n}||_{2}^{2}+\sum_{i} \alpha_{i}||\mathbf{W}_{i}||_{L}^{2}+\beta||\mathbf{V}||_{L}^{2}
+$$
+The network is implemented using Keras with TensorFlow, which optimizes the parameters using gradient descent.
