@@ -100,4 +100,4 @@ For our purpose, we create a standard multi-layer perceptron with hyperbolic tan
 $$
 \underset{\mathbf{w}_{i}, \mathbf{v}}{\operatorname{argmin}} \sum_{n=1}^{N}||\mathbf{y}_{n}-\hat{\mathbf{y}}_{n}||_{2}^{2}+\sum_{i} \alpha_{i}||\mathbf{W}_{i}||_{L}^{2}+\beta||\mathbf{V}||_{L}^{2}
 $$
-Where $$W$$ is the weight matrix and $$V$$ is the bias term of the layers/neurons of our neural network. The network is implemented using Keras with TensorFlow, which optimizes the parameters using gradient descent.
+. Where $$W$$ is the weight matrix and $$V$$ is the bias term of the layers/neurons of our neural network. The network is implemented using Keras with TensorFlow, which optimizes the parameters using gradient descent.
