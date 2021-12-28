@@ -109,6 +109,8 @@ $$
 y_i = f(x_i)+ \epsilon
 $$
 where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sigma^2)$$.
-| ![latent](assets/img/latent.jpg) | 
+| ![latent](assets/imgages/latent.jpg) | 
 |:--:| 
 | *Latent and manifest variables* |
+
+The image above explain the GPLVM, in particular $$\theta$$ is the latent variable, $$y_n$$ the manifest one and the arrows represent the dependency relation between variables.
