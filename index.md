@@ -81,9 +81,13 @@ We will now describe how these methods work, we will discuss the structure and t
 # Autoencoders
 -----------------------------------------------------------------
 
-Autoencoders are an unsupervised learning technique in which neural networks are used for the task of representation learning. Specifically, a neural network architecture will be designed so that we have a bottleneck in the network which forces a compressed knowledge representation of the original input. 
+Autoencoders are an unsupervised learning technique in which neural networks are used for the task of representation learning. Specifically, a neural network architecture will be designed so that we have a bottleneck in the network which forces a compressed knowledge representation of the original input.
 
-As shown in the image, 
+| ![dataset_sparsity](assets/img/autoencoder-architecture.png) | 
+|:--:| 
+| *autoencoder architecture* |
+
+As shown in the image, the autoncoder is essentially composed of two distinct parts: the encoder part and the decoder part. Each of the two parts is a neural network with a variable number of layers and neurons.
 
 
 The objective is to infer pseudo-time/embedding $$\mathbf{X}_n$$ for cell $$n$$ from its transcriptome profile $$\mathbf{y}_n$$ a column vector containing the expression
