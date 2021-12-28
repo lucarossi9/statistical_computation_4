@@ -101,3 +101,11 @@ $$
 \underset{\mathbf{w}_{i}, \mathbf{v}}{\operatorname{argmin}} \sum_{n=1}^{N}||\mathbf{y}_{n}-\hat{\mathbf{y}}_{n}||_{2}^{2}+\sum_{i} \alpha_{i}||\mathbf{W}_{i}||_{L}^{2}+\beta||\mathbf{V}||_{L}^{2}
 $$
 . Where $$W$$ is the weight matrix and $$V$$ is the bias term of the layers/neurons of our neural network. The network is implemented using Keras with TensorFlow, which optimizes the parameters using gradient descent.
+
+#GPLVM
+--------------------------------
+The Gaussian Process Latent Variable Model (GPLVM) is a dimensionality reduction method that uses a Gaussian process to learn a low-dimensional representation of (potentially) high-dimensional data. A latent variable model generally refers to a statistical model that relates a set of variables (so-called manifest variables) to a set of latent variables under the assumption that the responses on the manifest variables are controlled by the latent variables. Its goal is to learn the low dimensional representation $X^{N\times Q}$ of the data matrix $Y^{N\times D}$ , where N and D are the number and dimensionality of training samples, respectively, and Q<<D. The generation process of the ith training sample yi is
+$$
+y_i\equal f(x_i)+\epsilon
+$$
+where $\epsilon$ is the noise with gaussian distribution 
