@@ -55,7 +55,7 @@ The dataset used in our analysis is CHLA9.loom, containing information about mor
 Each row of our dataset is indexed by a list of keys. Among them, we decided to filter our initial dataset so that it contains only the counts of the genes whose genetype is 'protein_encoding' since, according to literature, it is generally easier to predict the phase of their cycle and since we have a huge number of these genes.
 Moreover, we filtered the dataset using the attributed "TotalUmis", deleting all the cells with a number of counts outside the 25-75% interquantile range. Here below we show the boxplot used to filter the dataset and the genetype distribution.
 
-<iframe src="assets/plots/subplots_dataset_preprocessing.html" width="100%" height="600"> </iframe>
+<iframe src="assets/plots/subplots_dataset_preprocessing.html" width="100%" height="800"> </iframe>
 
 The reason why we filtered the cells with a too small or too large number of genes is due to the fact that the phase of those cell could be more difficult to determine when the number of these observed genes does not lie inside the 25-75%. Indeed, if the count was outside this range, we could have too few or too many genes to take into account in our future models and therefore we could easily underfit or overfit the data.
 Moreover, we removed from our dataset the half of the genes of our dataset (half of the rows) that had the bigger number of zeros inside them because, with the same argument as before, we would like to focus on the genes which are sufficiently observed in our dataset. 
