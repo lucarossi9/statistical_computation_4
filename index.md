@@ -109,3 +109,6 @@ $$
 y_i = f(x_i)+ \epsilon
 $$
 where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sigma^2)$$.
+| ![latent](assets/img/latent.jpg) | 
+|:--:| 
+| *Latent and manifest variables* |
