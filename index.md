@@ -48,8 +48,8 @@ Table: First rows and columns of CHLA9 dataset
 The dataset used in our analysis is CHLA9.loom, containing information about more than 5000 different cells. Notice that the initial format of our data is a loom format, designed to efficiently hold large omics datasets. As shown in the table above, each column of the dataset describes a different cell and it is named and identified by a unique string, part of which corresponds to the DNA sequence of the cell. For each column of the dataset (for each cell) we have more than 60000 positive natural numbers associated to it. Each of these numbers represents a specific count of genes inside the cell. Finally, for each cell, we also have an attribute called "TotalUMIs" (one of the counts) representing the sum of the aforementioned counts. This number is often introduced in omic datasets since most of the gene counts are zero (our dataset is sparse).
 
 ![image](assets/img/Dataset_sparsity.png)
-
-{:.Sparsity of the dataset matrix}
+|:--:| 
+| *Dataset sparsity* |
 
 
 Each row of our dataset is indexed by a list of keys. Among them, we decided to filter our initial dataset so that it contains only the cells whose genetype is 'protein_encoding' since, according to literature, it is generally easier to predict the phase of their cycle.
