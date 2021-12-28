@@ -74,7 +74,8 @@ The goal of our project will be to determine the phase of the cells using the de
 Let us first of all give some mathematical rigor to the problem. Let us call $$x_n$$ the feature vector of the cell $$n$$ (the columns of the dataset matrix), our goal is to determine an embedding mapping $$\phi : X \to Y $$ such that $$\phi(x_n) = y_n$$ where $$X$$ is the feature space, $$Y$$ is the phase space and $$y_n$$ is the phase of the cell $$n$$. Notice that the dimensionality of the feature space $$X$$ is generally very large (in our case $$60000$$) while the $$Y$$ space is unidimensional and can be considered homeomorphic to the space $$S_1$$: the unitary circle in the $$xy$$ plane. Notice that we don't have the labels $$y_n$$ described above in practice since they are quite expensive to collect. Therefore, the problem can be seen as a dimensionality reduction problem and some of the machine learning techniques for dimensionality reduction such as PCA, autoencoders and Gaussian process latent variable models seem suitable. However we should discard from the beginning any linear method such as PCA since the function $$\phi$$ should be periodical and nonlinear. Then, we will apply the following machine learning techniques:
 * Autoencoders
 * Autoencoders with residual neural networks
-* Gaussian process latent variable models
+* Gaussian process latent variable models (GPLVM)
+
 We will now describe how these methods work, we will discuss the structure and the obtained results when they are applied to our specific use case.
 
 # Autoencoders
