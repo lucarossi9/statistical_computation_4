@@ -109,7 +109,7 @@ The Gaussian Process Latent Variable Model (GPLVM) is a dimensionality reduction
 The __Gaussian process__ attempts to describe a directional dependency between a covariate variable $$x$$ and the correspondingobservable output $$y$$. For doing that it uses the conditional distribution $$p(y\vert x)$$ which describes the dependency of an observable $$y$$ on acorresponding input $$x \in X$$. A random function $$f:X\to \mathbf{R}$$  is a Gaussian Process with mean $$m(x)$$ and co-variance function $$k(x,x*)$$ if $$f_{X}=(f(x_1),...,f(x_n)) \sim \mathcal{N}(\mu_X,K_{XX})$$ (where $$\mu$$ is often considered as zero). This method aim to study $$y=f(x)+\epsilon$$, where $$\epsilon \sim \mathcal{N}(0,\sigma^2)$$, in particular it wants to learn $$f$$ in order to make predictions on $$f(x*)$$. In this case $$y$$ is distributed as $$\mathcal{N}(0,K(x,x)+\sigma^2I)$$. For doing that, we have a training set $${(x_i,y_i), i=1,...,n}$$ and a testing set $${x_i^\star, i=1,...,n}$$. To reach those results it takes advantage of the likelihood function $$p(y\vert f, \theta)=\mathcal{N}(f, σ2nI)$$, which can be defined, particularly we aim to find the $$\theta$$ that maximizes this loglikelihood. At this point we can predict the $$f*$$ distribution:
 $$p(f∗\vert, X, X^∗, \theta) = \mathcal{N}(K*(K+\sigma^2)^{-1}y, K**-k*(K−sigma^2)^{-1}K*)$$
 
-| ![gp](assets/img/gp.png) | 
+| ![gp](assets/img/gauspro.png) | 
 |:--:| 
 | *Gaussian Process* |
 
