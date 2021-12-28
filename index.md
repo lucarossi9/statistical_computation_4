@@ -104,12 +104,18 @@ $$
 
 #  GPLVM
 --------------------------------
-The Gaussian Process Latent Variable Model (GPLVM) is a dimensionality reduction method that uses a Gaussian process to learn a low-dimensional representation of (potentially) high-dimensional data. A latent variable model generally refers to a statistical model that relates a set of variables (so-called manifest variables) to a set of latent variables under the assumption that the responses on the manifest variables are controlled by the latent variables. The GPLVM goal is to learn the low dimensional representation $$X^{N\times Q}$$ of the data matrix $$Y^{N\times D}$$ , where N and D are the number and dimensionality of training samples, respectively, and Q<<D. The generation process of the training sample $$y_i$$ is:
+The Gaussian Process Latent Variable Model (GPLVM) is a dimensionality reduction method that uses a Gaussian process to learn a low-dimensional representation of (potentially) high-dimensional data. The Gaussian attempts to describe a directional dependency between a covariate variable $$x$$ and the corresponding
+observable output $$y$$. For doing that it estimates the conditional distribution p(y|x) which describes the dependency of an observable $$y$$ on a
+corresponding input $$x \in X$$. Furthermore, the systematic dependency is given by a latent function $$f : X \to \mathbf{R}$$ such that the sampling distribution, i.e. the likelihood, is of the form:
+$$
+p(y|f(x), \theta)
+$$
+A latent variable model generally refers to a statistical model that relates a set of variables (so-called manifest variables) to a set of latent variables under the assumption that the responses on the manifest variables are controlled by the latent variables. The GPLVM goal is to learn the low dimensional representation $$X^{N\times Q}$$ of the data matrix $$Y^{N\times D}$$ , where N and D are the number and dimensionality of training samples, respectively, and Q<<D. The generation process of the training sample $$y_i$$ is:
 $$
 y_i = f(x_i)+ \epsilon
 $$
 where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sigma^2)$$.
-| ![latent](assets/imgages/latent.jpg) | 
+| ![latent](assets/img/latent.jpg) | 
 |:--:| 
 | *Latent and manifest variables* |
 
