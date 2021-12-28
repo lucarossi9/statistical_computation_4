@@ -35,6 +35,8 @@ Cell cycle is the most fundamental biological process underlying the existence a
 ---------------------------------------------------------------
 
 
+<center>
+
 |            | cell 1 | cell 2 | cell 3 | cell 4 | ... |
 |------------|--------|--------|--------|--------|-----|
 | total_UMIs | 37509  | 34809  | 85843  | 48921  | ... |
@@ -42,6 +44,8 @@ Cell cycle is the most fundamental biological process underlying the existence a
 | count 2    | 0      | 0      | 0      | 0      | ... |
 | count 3    | 0      | 0      | 0      | 0      | ... |
 | ...        | ...    | ...    | ...    | ...    | ... |
+  
+</center>
 
 Table: First rows and columns of CHLA9 dataset
 
