@@ -32,7 +32,17 @@ Cell cycle is the most fundamental biological process underlying the existence a
 
 # Dataset description and preprocessing
 
-The dataset used in our analysis is CHLA9.loom, containing information about more than 5000 different cells. Notice that the initial format of our data is a loom format, designed to efficiently hold large omics datasets. Each column of the dataset described a different cell and it is named and identified by a unique string, part of which corresponds to the DNA sequence of the cell. For each column of the dataset (for each cell) we have more than 60000 positive natural numbers associated to it. Each of these numbers represents a specific count of genes inside the cell. Finally, for each cell we have also an attribute called "TotalUMIs" (one of the counts) representing the sum of the aforementioned counts. This number is often introduced in omic datasets since the most of the gene counts are zero (our dataset is sparse).
+|            | cell 1 | cell 2 | cell 3 | cell 4 | ... |
+|------------|--------|--------|--------|--------|-----|
+| total_UMIs | 37509  | 34809  | 85843  | 48921  | ... |
+| count 1    | 0      | 0      | 0      | 0      | ... |
+| count 2    | 0      | 0      | 0      | 0      | ... |
+| count 3    | 0      | 0      | 0      | 0      | ... |
+| ...        | ...    | ...    | ...    | ...    | ... |
+
+Table: First rows and columns of CHLA9 dataset
+
+The dataset used in our analysis is CHLA9.loom, containing information about more than 5000 different cells. Notice that the initial format of our data is a loom format, designed to efficiently hold large omics datasets. As shown in the table above, each column of the dataset describes a different cell and it is named and identified by a unique string, part of which corresponds to the DNA sequence of the cell. For each column of the dataset (for each cell) we have more than 60000 positive natural numbers associated to it. Each of these numbers represents a specific count of genes inside the cell. Finally, for each cell we have also an attribute called "TotalUMIs" (one of the counts) representing the sum of the aforementioned counts. This number is often introduced in omic datasets since the most of the gene counts are zero (our dataset is sparse). 
 
 
 Each row of our dataset is indexed by a list of keys. Among them, we decided to filter our initial dataset so that it contains only the cells whose genetype is 'protein_encoding' since, according to literature, it is generally easier to predict the phase of their cycle.
