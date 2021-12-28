@@ -104,13 +104,15 @@ $$
 
 #  GPLVM
 --------------------------------
-The Gaussian Process Latent Variable Model (GPLVM) is a dimensionality reduction method that uses a Gaussian process to learn a low-dimensional representation of (potentially) high-dimensional data. The Gaussian attempts to describe a directional dependency between a covariate variable $$x$$ and the corresponding
-observable output $$y$$. For doing that it estimates the conditional distribution p(y|x) which describes the dependency of an observable $$y$$ on a
-corresponding input $$x \in X$$. Furthermore, the systematic dependency is given by a latent function $$f : X \to \mathbf{R}$$ such that the sampling distribution, i.e. the likelihood, is of the form:
-$$
-p(y|f(x), \theta)
-$$
-A latent variable model generally refers to a statistical model that relates a set of variables (so-called manifest variables) to a set of latent variables under the assumption that the responses on the manifest variables are controlled by the latent variables. The GPLVM goal is to learn the low dimensional representation $$X^{N\times Q}$$ of the data matrix $$Y^{N\times D}$$ , where N and D are the number and dimensionality of training samples, respectively, and Q<<D. The generation process of the training sample $$y_i$$ is:
+The Gaussian Process Latent Variable Model (GPLVM) is a dimensionality reduction method that uses a Gaussian process to learn a low-dimensional representation of (potentially) high-dimensional data. 
+- The Gaussian process attempts to describe a directional dependency between a covariate variable $$x$$ and the correspondingobservable output $$y$$. For doing that it uses the conditional distribution p(y|x) which describes the dependency of an observable $$y$$ on acorresponding input $$x \in X$$. A random function $$f:X\to \mathbf{R}$$  is a Gaussian Process with mean $$m(x)$$ and co-variance function $$k(x,x*)$$ if  $$f_X=(f(x_1),...,f(x_n)) \tilde \mathcal{N}(\mu_X,K_{XX})$$ (where $$\mu$$ is often considered as zero). This method aim to study $$y=f(x)+\epsilon$$, where $$\epsilon \mathcal{N}(0,\sigma^2), in particular it wants to learn $$f$$ in order to make predictions on $$f(x*)$$. In this case $$y$$ is distributed as \mathcal{N}(0,K(x,x)+\sigma^2I). For doing that, we have a training set $${(x_i,y_i), i=1,...,n}$$ and a testing set $${x_i^\star, i=1,...,n}$$. To reach those results it takes advantage of the likelihood function $$p(y|f, \theta)=\mathcal{N}(f, σ2nI)$$, which can be defined, particularly we aim to find the $$\theta$$ that maximizes this loglikelihood. At this point we can predict the $$f*$$ distribution:
+$$p(f^∗|f, X, X^∗, \theta) = \mathcal{N}(K*(K+\sigma^2)^{-1}y, K**-k*(K−sigma^2)^{-1}K*)$$
+
+
+- The Latent variable model generally refers to a statistical model that relates a set of variables (so-called manifest variables) to a set of latent variables under the assumption that the responses on the manifest variables are controlled by the latent variables. 
+
+
+The GPLVM goal is to learn the low dimensional representation $$X^{N\times Q}$$ of the data matrix $$Y^{N\times D}$$ , where N and D are the number and dimensionality of training samples, respectively, and Q<<D. The generation process of the training sample $$y_i$$ is:
 $$
 y_i = f(x_i)+ \epsilon
 $$
