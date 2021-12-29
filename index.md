@@ -149,7 +149,7 @@ where $$p(x)\sim \mathcal{N}(0,\Sigma)$$.
 
 Another model which we decided to implement was a variant of the autoencoder based model. Like a standard autoencoder, the model is made up of an encoder and a decoder part but, this time, the **residual neural network** approach is applied to the encoder part. The approach consists of adding skipping layers shortcuts between the blocks of the encoder as shown in the image below.
 
-| ![residual neural nets](assets/img/residual_neural_network.png) | 
+| ![residual neural nets](assets/img/residual_neural_network.png =x250) | 
 |:--:| 
 | *Skipping layer example* |
 
