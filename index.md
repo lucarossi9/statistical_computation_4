@@ -149,7 +149,7 @@ where $$p(x)\sim \mathcal{N}(0,\Sigma)$$.
 
 Another model which we decided to implement was a variant of the autoencoder based model. Like a standard autoencoder, the model is made up of an encoder and a decoder part but, this time, the **residual neural network** approach is applied to the encoder part. The approach consists of adding skipping layers shortcuts between the blocks of the encoder as shown in the image below.
 
-| ![latent](assets/img/residual_neural_network.jpg) | 
+| ![residual neural nets](assets/img/residual_neural_network.jpg) | 
 |:--:| 
 | *Skipping layer example* |
 
@@ -158,8 +158,8 @@ The advantage of skipping layers in neural networks lies in the fact that when n
 # References
 --------------------------------------------------
 
-[1] Liang, S., Wang, F., Han, J. et al. Latent periodic process inference from single-cell RNA-seq data. Nat Commun 11, 1441 (2020). https://doi.org/10.1038/s41467-020-15295-9 <\b> 
-[2] Zinovyev,A., Sadovsky, M., Calzone, L., Fouché, A., Groeneveld,C.,S., Chervov, A., Barillot, E., Gorban, A., N., Modeling Progression of Single Cell Populations Through the Cell Cycle as a Sequence of Switches (2021). doi: https://doi.org/10.1101/2021.06.14.448414 <\b> 
+[1] Liang, S., Wang, F., Han, J. et al. Latent periodic process inference from single-cell RNA-seq data. Nat Commun 11, 1441 (2020). https://doi.org/10.1038/s41467-020-15295-9 <b> 
+[2] Zinovyev,A., Sadovsky, M., Calzone, L., Fouché, A., Groeneveld,C.,S., Chervov, A., Barillot, E., Gorban, A., N., Modeling Progression of Single Cell Populations Through the Cell Cycle as a Sequence of Switches (2021). doi: https://doi.org/10.1101/2021.06.14.448414 <b> 
 [3] McDavid A, Dennis L, Danaher P, Finak G, Krouse M, et al. (2014) Modeling Bi-modality Improves Characterization of Cell Cycle on Gene Expression in
-Single Cells. PLoS Comput Biol 10(7): e1003696. https://doi.org/10.1371/journal.pcbi.1003696 <\b> 
-[4] K. He, X. Zhang, S. Ren and J. Sun, "Deep Residual Learning for Image Recognition," 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016, pp. 770-778, https://doi.org/10.1109/CVPR.2016.90 <\b> 
+Single Cells. PLoS Comput Biol 10(7): e1003696. https://doi.org/10.1371/journal.pcbi.1003696 <b> 
+[4] K. He, X. Zhang, S. Ren and J. Sun, "Deep Residual Learning for Image Recognition," 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016, pp. 770-778, https://doi.org/10.1109/CVPR.2016.90 <b> 
