@@ -102,6 +102,18 @@ $$
 $$
 . Where $$W$$ is the weight matrix and $$V$$ is the bias term of the layers/neurons of our neural network. The network is implemented using Keras with TensorFlow, which optimizes the parameters using gradient descent.
 
+# Autoencoders with residual neural networks
+--------------------------------------------------
+
+Another model which we decided to implement was a variant of the autoencoder based model. Like a standard autoencoder, the model is made up of an encoder and a decoder part but, this time, the **residual neural network** approach is applied to the encoder part. The approach consists of adding skipping layers shortcuts between the blocks of the encoder as shown in the image below.
+
+| ![residual neural nets](assets/img/residual_neural_network.png) | 
+|:--:| 
+| *Skipping layer example* |
+
+The advantage of skipping layers in neural networks lies in the fact that when neural networks are deep, we could face the **Degradation problem**. This problem is widely known since He et al. [4] published for the first time a paper proposing an innovative approach to solve this issue. They discovered that adding more layers to deep neural networks could lead to a decrease in the performance (degradation problem). The authors mitigated this problem by adding shortcuts between layers, allowing the network to decrease the information loss through the propagation since identity function were added to the network. This technique is now widely used because it permits the use of deeper neural network without paying the information loss price. In our case we used 
+
+
 #  GPLVM
 --------------------------------
 
@@ -143,17 +155,6 @@ p(y^\star \vert y)=\int \int p(y^\star \vert x ,f)p(f\vert x)p(x)dxdf
 $$
 where $$p(x)\sim \mathcal{N}(0,\Sigma)$$.
 
-
-# Autoencoders with residual neural networks
---------------------------------------------------
-
-Another model which we decided to implement was a variant of the autoencoder based model. Like a standard autoencoder, the model is made up of an encoder and a decoder part but, this time, the **residual neural network** approach is applied to the encoder part. The approach consists of adding skipping layers shortcuts between the blocks of the encoder as shown in the image below.
-
-| ![residual neural nets](assets/img/residual_neural_network.png) | 
-|:--:| 
-| *Skipping layer example* |
-
-The advantage of skipping layers in neural networks lies in the fact that when neural networks are deep, we could face the **Degradation problem**. This problem is widely known since He et al. [4] published for the first time a paper proposing an innovative approach to solve this issue. They discovered that adding more layers to deep neural networks could lead to a decrease in the performance (degradation problem). The authors mitigated this problem by adding shortcuts between layers, allowing the network to decrease the information loss through the propagation since identity function were added to the network. This technique is now widely used because it permits the use of deeper neural network without paying the information loss price. In our case we used 
 
 # References
 --------------------------------------------------
