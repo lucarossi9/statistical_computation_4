@@ -141,3 +141,12 @@ $$
 p(y^\star \vert y)=\int \int p(y^\star \vert x ,f)p(f\vert x)p(x)dxdf
 $$
 where $$p(x)\sim \mathcal{N}(0,\Sigma)$$.
+
+
+# References
+--------------------------------------------------
+
+* Liang, S., Wang, F., Han, J. et al. Latent periodic process inference from single-cell RNA-seq data. Nat Commun 11, 1441 (2020). https://doi.org/10.1038/s41467-020-15295-9 
+* Zinovyev,A., Sadovsky, M., Calzone, L., Fouché, A., Groeneveld,C.,S., Chervov, A., Barillot, E., Gorban, A., N., Modeling Progression of Single Cell Populations Through the Cell Cycle as a Sequence of Switches (2021). doi: https://doi.org/10.1101/2021.06.14.448414
+* McDavid A, Dennis L, Danaher P, Finak G, Krouse M, et al. (2014) Modeling Bi-modality Improves Characterization of Cell Cycle on Gene Expression in
+Single Cells. PLoS Comput Biol 10(7): e1003696. doi:10.1371/journal.pcbi.1003696
