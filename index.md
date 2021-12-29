@@ -110,9 +110,9 @@ The __Gaussian process__ attempts to describe a directional dependency between a
 
 A random function $$f:X\to \mathbf{R}$$ is a Gaussian Process with mean $$m(x)$$ and co-variance function $$k(x,x^\star)$$ if $$f_{X}=(f(x_1),...,f(x_n)) \sim \mathcal{N}(\mu_X,K_{XX})$$ (where $$\mu$$ is often considered as zero). This method aims to study $$y=f(x)+\epsilon$$, where $$\epsilon \sim \mathcal{N}(0,\sigma^2)$$. In this case $$y$$ is distributed as $$\mathcal{N}(0,K(x,x)+\sigma^2I)$$, because of the noise factor.
 
-To reach those results, it considers a training set $$\{(x_i,y_i), i=1,...,n\}$$ and a testing set $$\{x_i^\star, i=1,...,n\}$$, , in particular it wants to learn $$f$$ in order to make predictions on $$f(x^\star)$$. Furthemore, it takes advantage of the marginal likelihood function $$p(y\vert f, \theta)=\mathcal{N}(f, \sigma^2I)$$, which can be defined because $$f$$ is a GP. The $$\theta$$ variable represents all the hyper-parameters that explains the Kernel function and the noise variance $$\sigma$$. The prediction can be made because the $$f_{\star}$$ distribution:
-$$p(f_{\star}\vert, X, X^{\star}, \theta) = \mathcal{N}(K_{\star}(K+\sigma^2I)^{-1}y, K_{\star\star}-K_{\star}(K+\sigma^2I)^{-1}K_{\star})$$.
-Furthermore it uses the Bayesian marginalization:
+To reach those results, it considers a training set $$\{(x_i,y_i), i=1,...,n\}$$ and a testing set $$\{x_i^\star, i=1,...,n\}$$, , in particular it wants to learn $$f$$ in order to make predictions on $$f(x^\star)$$. Furthemore, it takes advantage of the marginal likelihood function $$p(y\vert f, \theta)=\mathcal{N}(f, \sigma^2I)$$, which can be defined because $$f$$ is a GP. The $$\theta$$ variable represents all the hyper-parameters that explains the Kernel function and the noise variance $$\sigma$$. The prediction can be made because the $$f_{\star}$$ distribution is:
+$$p(f_{\star}\vert, x, x^{\star}, \theta) = \mathcal{N}(K_{\star}(K+\sigma^2I)^{-1}y, K_{\star\star}-K_{\star}(K+\sigma^2I)^{-1}K_{\star})$$.
+Furthermore, it uses the Bayesian marginalization:
 $$
 p(y^\star \vert x^\star ,x,y)=\int p(y^\star \vert x^\star ,f)p(f\vert x,y)df
 $$
@@ -137,5 +137,5 @@ where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sig
 The image above explain the GPLVM, in particular $$X$$ is the latent variable, $$y_n$$ the manifest one and the arrows represent the dependency relation between variables.
 The GPLVM derives from the Gaussian Process but if defines also a prior over the latent factor x, for this reason the Besyan marginalization becomes:
 $$
-p(y^\star \vert y)=\int p(y^\star \vert x ,f)p(f\vert x)p(x)dxdf
+p(y^\star \vert y)=\int \int p(y^\star \vert x ,f)p(f\vert x)p(x)dxdf
 $$
