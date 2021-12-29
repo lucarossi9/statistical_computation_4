@@ -148,11 +148,11 @@ where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sig
 | *Latent and manifest variables* |
 
 <p align="center">
-  <img width="600" height="200" src="https://www.python.org/python-.png">
+  <img width="600" height="200" src="assets/img/latent.jpg">
 </p>
 
  <p align="center">
-  <img width="600" height="200" src="https://www.python.org/python-.png">
+  <img width="600" height="200" src="assets/img/latent.jpg">
 </p> | 
 |:--:| 
 | *Latent and manifest variables* |
