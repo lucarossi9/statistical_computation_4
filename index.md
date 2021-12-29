@@ -114,7 +114,7 @@ To reach those results, it considers a training set $$\{(x_i,y_i), i=1,...,n\}$$
 $$p(f_{\star}\vert, X, X^{\star}, \theta) = \mathcal{N}(K_{\star}(K-\sigma^2I)^{-1}y, K_{\star\star}-K_{\star}(K−\sigma^2I)^{-1}K_{\star})$$.
 Furthermore it uses the Bayesian marginalization:
 $$
-p(y^\star \vert x^\star ,x,y)=\int p(y^\star \vert x^\star ,f,\theta)p(f\vert x,y,\theta)df
+p(y^\star \vert x^\star ,x,y)=\int p(y^\star \vert x^\star ,f)p(f\vert x,y)df
 $$
 
 | ![gp](assets/img/gauspro.png) | 
@@ -137,5 +137,5 @@ where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sig
 The image above explain the GPLVM, in particular $$X$$ is the latent variable, $$y_n$$ the manifest one and the arrows represent the dependency relation between variables.
 The GPLVM derives from the Gaussian Process but if defines also a prior over the latent factor x, for this reason the Besyan marginalization becomes:
 $$
-p(y^\star \vert y)=\int p(y^\star \vert x ,f,\theta)p(f\vert x,\theta)p(x)dxdf
+p(y^\star \vert y)=\int p(y^\star \vert x ,f)p(f\vert x)p(x)dxdf
 $$
