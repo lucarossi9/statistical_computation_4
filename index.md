@@ -147,6 +147,17 @@ where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sig
 |:--:| 
 | *Latent and manifest variables* |
 
+<p align="center">
+  <img width="600" height="200" src="https://www.python.org/python-.png">
+</p>
+
+ <p align="center">
+  <img width="600" height="200" src="https://www.python.org/python-.png">
+</p> | 
+|:--:| 
+| *Latent and manifest variables* |
+
+
 The image above explain the GPLVM, in particular $$X$$ is the latent variable, $$y_n$$ the manifest one and the arrows represent the dependency relation between variables.
 The GPLVM derives from the Gaussian Process but it defines also a prior over the latent factor $$x$$, for this reason $$p(y\vert x,\theta)$$ can be obtained by using Bayesian theorem and integrating out $$f$$, then it can maximize the marginal likelihood with respect to $$x$$ and the hyper-parameter $$\theta$$.
 Furthermore, the Besyan marginalization becomes:
