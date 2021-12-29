@@ -149,9 +149,11 @@ where $$p(x)\sim \mathcal{N}(0,\Sigma)$$.
 
 Another model which we decided to implement was a variant of the autoencoder based model. Like a standard autoencoder, the model is made up of an encoder and a decoder part but, this time, the **residual neural network** approach is applied to the encoder part. The approach consists of adding skipping layers shortcuts between the blocks of the encoder as shown in the image below.
 
-| ![residual neural nets](assets/img/residual_neural_network.png) { width: 150px; } | 
+| ![residual neural nets](assets/img/residual_neural_network.png) | 
 |:--:| 
 | *Skipping layer example* |
+
+<img src="assets/img/residual_neural_network.png" alt="drawing" width="200"/>
 
 The advantage of skipping layers in neural networks lies in the fact that when neural networks are deep, we could face the **Degradation problem**. This problem is widely known since He et al. [4] published for the first time a paper proposing an innovative approach to solve this issue. They discovered that adding more layers to deep neural networks could lead to a decrease in the performance (degradation problem). Therefore, the authors mitigated this problem by adding shortcuts between layers, allowing the network to decrease the information loss through the propagation. 
 
