@@ -148,9 +148,10 @@ where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sig
 | *Latent and manifest variables* |
 
 <p align="center">
-  <img width="200" height="600" src="assets/img/latent.jpg">
+  <img width="200" height="500" src="assets/img/latent.jpg">
+  | *Latent and manifest variables* |
 </p>
-| *Latent and manifest variables* |
+
 
 
 The image above explain the GPLVM, in particular $$X$$ is the latent variable, $$y_n$$ the manifest one and the arrows represent the dependency relation between variables.
