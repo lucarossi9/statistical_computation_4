@@ -153,9 +153,7 @@ Another model which we decided to implement was a variant of the autoencoder bas
 |:--:| 
 | *Skipping layer example* |
 
-<img src="assets/img/residual_neural_network.png" alt="drawing" width="200"/>
-
-The advantage of skipping layers in neural networks lies in the fact that when neural networks are deep, we could face the **Degradation problem**. This problem is widely known since He et al. [4] published for the first time a paper proposing an innovative approach to solve this issue. They discovered that adding more layers to deep neural networks could lead to a decrease in the performance (degradation problem). Therefore, the authors mitigated this problem by adding shortcuts between layers, allowing the network to decrease the information loss through the propagation. 
+The advantage of skipping layers in neural networks lies in the fact that when neural networks are deep, we could face the **Degradation problem**. This problem is widely known since He et al. [4] published for the first time a paper proposing an innovative approach to solve this issue. They discovered that adding more layers to deep neural networks could lead to a decrease in the performance (degradation problem). The authors mitigated this problem by adding shortcuts between layers, allowing the network to decrease the information loss through the propagation since identity function were added to the network. This technique is now widely used because it permits the use of deeper neural network without paying the information loss price. In our case we used 
 
 # References
 --------------------------------------------------
