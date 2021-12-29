@@ -106,9 +106,16 @@ $$
 --------------------------------
 The Gaussian Process Latent Variable Model (GPLVM) is a dimensionality reduction method that uses a Gaussian process to learn a low-dimensional representation of (potentially) high-dimensional data.
 
-The __Gaussian process__ attempts to describe a directional dependency between a covariate variable $$x$$ and the corresponding observable output $$y$$. For doing that it uses the conditional distribution $$p(y\vert x)$$ which describes the dependency of an observable $$y$$ on a corresponding input $$x \in X$$. \\
-A random function $$f:X\to \mathbf{R}$$ is a Gaussian Process with mean $$m(x)$$ and co-variance function $$k(x,x^\star)$$ if $$f_{X}=(f(x_1),...,f(x_n)) \sim \mathcal{N}(\mu_X,K_{XX})$$ (where $$\mu$$ is often considered as zero). This method aims to study $$y=f(x)+\epsilon$$, where $$\epsilon \sim \mathcal{N}(0,\sigma^2)$$. In this case $$y$$ is distributed as $$\mathcal{N}(0,K(x,x)+\sigma^2I)$$, because of the noise factor. To reach those results, it considers a training set $$\{(x_i,y_i), i=1,...,n\}$$ and a testing set $$\{x_i^\star, i=1,...,n\}$$, , in particular it wants to learn $$f$$ in order to make predictions on $$f(x^\star)$$. Furthemore, it takes advantage of the likelihood function $$p(y\vert f, \theta)=\mathcal{N}(f, \sigma^2I)$$, which can be defined because $$f$$ is a GP. The $$\theta$$ variable represents all the hyper-parameters that explains the Kernel function and the noise variance $$\sigma$$. Particularly, this model aims to find the $$\theta$$ value that maximizes this loglikelihood. At this point, after it found the $$\theta$$ value, it can predict the $$f_{\star}$$ distribution:
+The __Gaussian process__ attempts to describe a directional dependency between a covariate variable $$x$$ and the corresponding observable output $$y$$. For doing that it uses the conditional distribution $$p(y\vert x)$$ which describes the dependency of an observable $$y$$ on a corresponding input $$x \in X$$. 
+
+A random function $$f:X\to \mathbf{R}$$ is a Gaussian Process with mean $$m(x)$$ and co-variance function $$k(x,x^\star)$$ if $$f_{X}=(f(x_1),...,f(x_n)) \sim \mathcal{N}(\mu_X,K_{XX})$$ (where $$\mu$$ is often considered as zero). This method aims to study $$y=f(x)+\epsilon$$, where $$\epsilon \sim \mathcal{N}(0,\sigma^2)$$. In this case $$y$$ is distributed as $$\mathcal{N}(0,K(x,x)+\sigma^2I)$$, because of the noise factor.
+
+To reach those results, it considers a training set $$\{(x_i,y_i), i=1,...,n\}$$ and a testing set $$\{x_i^\star, i=1,...,n\}$$, , in particular it wants to learn $$f$$ in order to make predictions on $$f(x^\star)$$. Furthemore, it takes advantage of the marginal likelihood function $$p(y\vert f, \theta)=\mathcal{N}(f, \sigma^2I)$$, which can be defined because $$f$$ is a GP. The $$\theta$$ variable represents all the hyper-parameters that explains the Kernel function and the noise variance $$\sigma$$. The prediction can be made beavuse the $$f_{\star}$$ distribution:
 $$p(f_{\star}\vert, X, X^{\star}, \theta) = \mathcal{N}(K_{\star}(K-\sigma^2I)^{-1}y, K_{\star\star}-K_{\star}(K−\sigma^2I)^{-1}K_{\star})$$.
+Furthermore it uses the Bayesian marginalization:
+$$
+p(y^\star \vert x^\star ,x,y)=\int p(y^\star \vert x^\star ,f,\theta)p(f\vert x,y,\theta)df
+$$
 
 | ![gp](assets/img/gauspro.png) | 
 |:--:| 
@@ -117,7 +124,7 @@ $$p(f_{\star}\vert, X, X^{\star}, \theta) = \mathcal{N}(K_{\star}(K-\sigma^2I)^{
 The __Latent variable model__ generally refers to a statistical model that relates a set of variables (so-called manifest variables) to a set of latent variables under the assumption that the responses on the manifest variables are controlled by the latent variables. 
 
 
-The __GPLVM goal__ is to learn the low dimensional representation $$X^{N\times Q}$$ of the data matrix $$Y^{N\times D}$$ , where N and D are the number and dimensionality of training samples, respectively, and Q<<D. The generation process of the training sample $$y_i$$ is:
+The __GPLVM__  goal is to learn the low dimensional representation $$X^{N\times Q}$$ (latent variable) of the data matrix $$Y^{N\times D}$$ , where N and D are the number and dimensionality of training samples, respectively, and Q<<D. The generation process of the training sample $$y_i$$ is:
 $$
 y_i = f(x_i)+ \epsilon
 $$
@@ -127,4 +134,8 @@ where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sig
 |:--:| 
 | *Latent and manifest variables* |
 
-The image above explain the GPLVM, in particular $$\theta$$ is the latent variable, $$y_n$$ the manifest one and the arrows represent the dependency relation between variables.
+The image above explain the GPLVM, in particular $$X$$ is the latent variable, $$y_n$$ the manifest one and the arrows represent the dependency relation between variables.
+The GPLVM derives from the Gaussian Process but if defines also a prior over the latent factor x, for this reason the Besyan marginalization becomes:
+$$
+p(y^\star \vert y)=\int p(y^\star \vert x ,f,\theta)p(f\vert x,\theta)p(x)dxdf
+$$
