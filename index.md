@@ -139,3 +139,4 @@ The GPLVM derives from the Gaussian Process but if defines also a prior over the
 $$
 p(y^\star \vert y)=\int \int p(y^\star \vert x ,f)p(f\vert x)p(x)dxdf
 $$
+where %%p(x)\sim \mathcal{N}(0,\Sigma)%%.
