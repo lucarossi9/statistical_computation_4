@@ -204,8 +204,7 @@ p(y^\star \vert y)=\int \int p(y^\star \vert x ,f)p(f\vert x)p(x)dxdf
 $$
 where $$p(x)\sim \mathcal{N}(0,\Sigma)$$.
 
-The following animated image shows how a projection mapping over a 2D manifold is learnt over the epochs for data points which were originally in a 3D space.
-
+The following animated image shows ... (pau you should add something)
 ![Alt Text](assets/img/gpr_animation.gif)
 
 
