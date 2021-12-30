@@ -155,6 +155,8 @@ p(y^\star \vert y)=\int \int p(y^\star \vert x ,f)p(f\vert x)p(x)dxdf
 $$
 where $$p(x)\sim \mathcal{N}(0,\Sigma)$$.
 
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
 
 # References
 --------------------------------------------------
