@@ -236,3 +236,6 @@ The project, carried out in collaboration with the lab of computational biology 
 [3] McDavid A, Dennis L, Danaher P, Finak G, Krouse M, et al. (2014) Modeling Bi-modality Improves Characterization of Cell Cycle on Gene Expression in
 Single Cells. PLoS Comput Biol 10(7): e1003696. <a href="https://doi.org/10.1371/journal.pcbi.1003696"> Link to the paper </a> <br> 
 [4] K. He, X. Zhang, S. Ren and J. Sun, "Deep Residual Learning for Image Recognition," 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016, pp. 770-778, <a href="https://doi.org/10.1109/CVPR.2016.90"> Link to the paper </a> <br> 
+[5] Leng, Ning et al. “Oscope identifies oscillatory genes in unsynchronized single cell RNA-seq experiments.” Nature methods 12 (2015): 947 - 950. <a href="https://www.nature.com/articles/nmeth.3549"> Link to the paper </a> <br> 
+[6] Liu, Zehua et al. “Reconstructing cell cycle pseudo time-series via single-cell transcriptome data.” Nature Communications 8 (2017) <a href="https://www.nature.com/articles/s41467-017-00039-z"> Link to the paper </a> <br> 
+[7] Anafi, Ron C. et al. “CYCLOPS reveals human transcriptional rhythms in health and disease.” Proceedings of the National Academy of Sciences 114 (2017): 5312 - 5317. <a href="https://www.pnas.org/content/114/20/5312"> Link to the paper </a> <br> 
