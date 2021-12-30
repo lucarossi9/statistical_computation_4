@@ -75,7 +75,7 @@ The 253 genes are the result of a filtering process applied on a total of 333 ge
 
 In the scatter plots below we applied TSNE method (t-distributed Stochastic Neighbor Embedding), which is a technique for dimensionality reduction that is particularly well suited for the visualization of high-dimensional datasets.
 
-- __H9 (HTB-176)__: is a cutaneous human cell of the prostate tissue affected by lymphoma desease. This dataset contains 227 cells.
+- __H9 (HTB-176)__: is a cutaneous human cell affected by lymphoma desease. This dataset contains 227 cells.
  {% include TSNE_H9.html %}
  {% include phases_h9.html %}
 -	__MDA-MB-231 (HTB-26)__: is an epithelial human cell of the breast tissue (Mammary gland) affected by adenocarcinoma. This dataset contains 342 cells.
