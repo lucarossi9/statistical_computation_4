@@ -160,6 +160,18 @@ The following animated image shows how a projection mapping over a 2D manifold i
 ![Alt Text](assets/img/https___qiita-image-store.s3.ap-northeast-1.amazonaws.com_0_547678_ef824989-26c3-a541-2298-165c4ff7078b.gif)
 
 
+
+### Results GPLVM
+
+As for the other models we report the results in accuracy when the GPLVM is applied to each of the three datasets. 
+
+|                  | pc3 dataset | mb dataset | H9 dataset |
+|------------------|-------------|------------|------------|
+| GPLVM            | 0.802       | 0.763      | 0.629      |
+| Cyclum model [1] | 0.793       | 0.779      | 0.593      |
+
+As we can see, we obtain an improvement in the accuracies for pc3 and H9 datasets. Overall the model seems to work even better than the Cyclum. Indeed we gain almost $$0.01$$ of accuracy in the first dataset and $$0.036$$ in H9 dataset even if we loose $$0.16$$ of accuracy in the mb dataset.
+
 # References
 --------------------------------------------------
 
