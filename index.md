@@ -125,7 +125,7 @@ The advantage of skipping layers in neural networks lies in the fact that when n
 
 Table: *Results residual autoencoder model*
 
-As we can observe from the table of the results above, using residual autoencoder allows us to gain $$0.055$ in accuracy in H9 dataset. However, we loose $$0.034$$ and $$0.037$$ in accuracy in the pc3 and mb datasets respectively.
+As we can observe from the table of the results above, using residual autoencoder allows us to gain $$0.055$$ in accuracy in H9 dataset. However, we loose $$0.034$$ and $$0.037$$ in accuracy in the pc3 and mb datasets respectively.
 
 
 #  GPLVM
