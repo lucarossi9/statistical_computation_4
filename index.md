@@ -97,7 +97,7 @@ $$
 is minimized. Notice that, to prevent overfitting, a regularization term is often included in the objective function.
 Additionally, autoencoders are powerful methods for dimensionality reduction. Indeed, it can be shown that if we don't apply any nonlinear activation function in the decoder part, the results of PCA and autoencoders (the representation $$z$$) are the same.
 
-We tried to reproduce the work of Liang et al. [1] therefore recreating Cyclum: the autoencoder used by the authors. As suggested, we adopted an asymmetrical autoencoder composed of three layers with a decreasing number of neurons in the encoder with hyperbolic tangent activation functions and a decoder with two layers: the first one using cosine and sine activation functions and the second one performing a simple linear transformation. 
+We tried to reproduce the work of Liang et al. [1] therefore recreating Cyclum: the autoencoder used by the authors. As suggested, we adopted an asymmetrical autoencoder. The encoder is composed of three layers with a decreasing number of neurons, the hyperbolic tangent is used as the activation functions. The decoder has two layers: the first one using cosine and sine activation functions and the second one performing a simple linear transformation. 
 We use the least square error as the optimization target with L2 regularization, formally:
 $$
 \underset{\mathbf{w}_{i}, \mathbf{v}}{\operatorname{argmin}} \sum_{n=1}^{N}||\mathbf{y}_{n}-\hat{\mathbf{y}}_{n}||_{2}^{2}+\sum_{i} \alpha_{i}||\mathbf{W}_{i}||_{L}^{2}+\beta||\mathbf{V}||_{L}^{2}
