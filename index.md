@@ -39,7 +39,7 @@ The cell cycle is the most fundamental biological process underlying the existen
 
 # Dataset description and preprocessing
 ---------------------------------------------------------------
-
+# First dataset
 
 |            | cell 1 | cell 2 | cell 3 | cell 4 | ... |
 |------------|--------|--------|--------|--------|-----|
@@ -66,6 +66,16 @@ Moreover, we filtered the dataset using the attributed "TotalUmis", deleting all
 The reason why we filtered the cells with a too small or too large number of genes is due to the fact that the phase of those cells could be more difficult to determine when the number of these observed genes does not lie inside the *25%-75%*. Indeed, if the count was outside this range, we could have too few or too many genes to take into account in our future models and therefore we could easily underfit or overfit the data.
 Moreover, we removed from our dataset the half of the genes of our dataset (half of the rows) that had the bigger number of zeros inside them because, with the same argument as before, we would like to focus on the genes which are sufficiently observed in our dataset. 
 Finally, as suggested by our supervisor, we applied a standardization technique often used in the omic domain. For each cell, we divided each count of genes (each column of our dataframe) by the total number of the counts of the genes inside the cell. In this way, we now have to deal with real values in the interval [0,1] instead of discrete values which could cause problems when applying Machine Learning models to them. Additionally, since we had values close to zero in the entries of our dataframe, we added to all the entries the minimum value in all the entries of the dataframe and, subsequently, we applied a log transformation elementwise. This standardizing procedure will allow us to work with real values sufficiently far from zero, allowing us to avoid numerical issues.
+
+# Second dataset
+
+The dataset is composes of 930 cell, across three cell lines. The cell lines consist of transformed cell populations with the ability to divide indefinitely. They have great utility in research and have led to numerous important discoveries throughout medicine. In particular, the three cell type we’re considering are H9, MDA-MB-231 and PC3. For each of these cell lines we dispose of a dataset with a certain number of cell, each of that is charachterized by its name (index value) and its description given by 253 genes (columns). For each cell we also are provided with the cycle phases they are in, that can be G0/G1,S or G2/M.
+
+- __H9 (HTB-176)__: is an cutaneous human cell of the prostate tissue affected by lymphoma desease. This dataset contains 361 cells.
+
+<iframe src="_includes/TSNE_H9.html" width="100%" height="720"> </iframe>
+<iframe src="_includes/phases_h9.html" width="100%" height="720"> </iframe>
+
 
 # Task and methods description
 ---------------------------------------------------------------
