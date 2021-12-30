@@ -71,10 +71,11 @@ Finally, as suggested by our supervisor, we applied a standardization technique 
 
 The dataset is composes of 930 cell, across three cell lines. The cell lines consist of transformed cell populations with the ability to divide indefinitely. They have great utility in research and have led to numerous important discoveries throughout medicine. In particular, the three cell type we’re considering are H9, MDA-MB-231 and PC3. For each of these cell lines we dispose of a dataset with a certain number of cell, each of that is charachterized by its name (index value) and its description given by 253 genes (columns). For each cell we also are provided with the cycle phases they are in, that can be G0/G1,S or G2/M.
 
-- __H9 (HTB-176)__: is an cutaneous human cell of the prostate tissue affected by lymphoma desease. This dataset contains 361 cells.
+- __H9 (HTB-176)__: is a cutaneous human cell of the prostate tissue affected by lymphoma desease. This dataset contains 361 cells.
+ {% include TSNE_H9.html %}
+-	__MDA-MB-231 (HTB-26)__: is an epithelial human cell of the breast tissue (Mammary gland) affected by adenocarcinoma. This dataset contains 227 cells.
+-	__PC3 (CRL-1435)__: is an epithelial human cell of the prostate tissue affected by adenocarcinoma (Grade IV). This dataset contains 342 cells.
 
-<iframe src="_includes/TSNE_H9.html" width="100%" height="720"> </iframe>
-<iframe src="_includes/phases_h9.html" width="100%" height="720"> </iframe>
 
 
 # Task and methods description
