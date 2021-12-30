@@ -39,6 +39,8 @@ The cell cycle is the most fundamental biological process underlying the existen
 
 # Dataset description and preprocessing
 ---------------------------------------------------------------
+In the following part we will show the two datasets we used for our project. The two databases contained cells information, in particular the second one contains information about the cell phase while the first one doesn't. For this reason we used the second one to create the model, while in the first one we tried to detect the cell phase with our model.
+
 # First dataset
 
 |            | cell 1 | cell 2 | cell 3 | cell 4 | ... |
