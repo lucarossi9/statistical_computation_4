@@ -106,7 +106,7 @@ $$
 
 ### Autoencoders results
 
-Using the model previously presented, we tried to identify the phase of the cells by infering the pseudo time of the circular path modelling the cell cycle. In particular, after having obtained the pseudotime, we divided the cell cycle in three main phases: g0/g1, s and g2/m. Then, we could approach the problem as a multiclassification problem and therefore we could be able to compute the accuracies when Cyclum model is applied to the three different datasets. Here below we report the results.
+Using the model previously presented, we tried to identify the phase of the cells by infering the pseudo time of the circular path modelling the cell cycle. In particular, after having obtained the pseudotime, we divided the cell cycle (and therefore the pseudo-time range) in three main phases: g0/g1, s and g2/m. Then, we could approach the problem as a multiclassification problem and we were able to compute the accuracies when Cyclum model is applied to the three different datasets. Here below we report the results.
 
 |                  | pc3 dataset | mb dataset | H9 dataset |
 |------------------|-------------|------------|------------|
