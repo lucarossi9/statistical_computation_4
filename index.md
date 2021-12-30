@@ -73,7 +73,7 @@ The dataset is composes of 930 cell, across three cell lines. The cell lines con
 
 The 253 genes are the result of a filtering process applied on a total of 333 genes. The cell cycle associated genes are 119/333, which provides information of the entire cell cycle. The non-cell-cycle associated genes are 214/333 and have primary roles in the inflammatory response and housekeeping controls.
 
-In the scatter plots below we used the TSNE methos (t-Distributed Stochastic Neighbor Embedding), which is a technique for dimensionality reduction that is particularly well suited for the visualization of high-dimensional datasets.
+In the scatter plots below we used the TSNE method (t-Distributed Stochastic Neighbor Embedding), which is a technique for dimensionality reduction that is particularly well suited for the visualization of high-dimensional datasets.
 
 - __H9 (HTB-176)__: is a cutaneous human cell affected by lymphoma desease. This dataset contains 227 cells.
  {% include TSNE_H9.html %}
