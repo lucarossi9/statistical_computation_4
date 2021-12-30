@@ -76,7 +76,7 @@ Let us, first of all, give some mathematical rigor to the problem. Let us call $
 * Autoencoders with residual neural networks
 * Gaussian process latent variable models (GPLVM)
 
-We will now describe how these methods work, we will discuss the structure and the obtained results when they are applied to our specific use case.
+We will now describe how these methods work, we will discuss the architecture used and the obtained results when they are applied to our specific use case.
 
 # Autoencoders
 -----------------------------------------------------------------
