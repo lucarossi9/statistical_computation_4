@@ -69,7 +69,10 @@ Finally, as suggested by our supervisor, we applied a standardization technique 
 
 # Second dataset
 
-The dataset is composes of 930 cell, across three cell lines. The cell lines consist of transformed cell populations with the ability to divide indefinitely. They have great utility in research and have led to numerous important discoveries throughout medicine. In particular, the three cell type we’re considering are H9, MDA-MB-231 and PC3. For each of these cell lines we dispose of a dataset with a certain number of cell, each of that is charachterized by its name (index value) and its description given by 253 genes (columns). For each cell we also are provided with the cycle phases they are in, that can be G0/G1,S or G2/M.
+The dataset is composes of 930 cell, across three cell lines. The cell lines consist of transformed cell populations with the ability to divide indefinitely. They have great utility in research and have led to numerous important discoveries throughout medicine. In particular, the three cell type we’re considering are H9, MDA-MB-231 and PC3. For each of these cell lines we dispose of a dataset with a certain number of cell, each of that is charachterized by its name (index value) and its description given by 253 genes (columns). For each cell we also are provided with the cycle phases they are in, that can be G0/G1,S or G2/M, which has been found measuring the DNA content. The proportion of cells in G0/G1 phases varied from 54% of PC-3 cells to 73% of H9 cells.
+
+The 253 genes are the result of a filtering process applied on a total of 333 genes. The cell cycle associated genes are 119/333, which provide information of the entire cell cycle. The non-cell-cycle associated genes are 214/333 and have primary roles in the inflammatory response and housekeeping controls.
+
 
 - __H9 (HTB-176)__: is a cutaneous human cell of the prostate tissue affected by lymphoma desease. This dataset contains 361 cells.
  {% include TSNE_H9.html %}
