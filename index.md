@@ -73,8 +73,13 @@ The dataset is composes of 930 cell, across three cell lines. The cell lines con
 
 - __H9 (HTB-176)__: is a cutaneous human cell of the prostate tissue affected by lymphoma desease. This dataset contains 361 cells.
  {% include TSNE_H9.html %}
+ {% include phases_h9.html %}
 -	__MDA-MB-231 (HTB-26)__: is an epithelial human cell of the breast tissue (Mammary gland) affected by adenocarcinoma. This dataset contains 227 cells.
+ {% include TSNE_MB.html %}
+ {% include phases_mb.html %}
 -	__PC3 (CRL-1435)__: is an epithelial human cell of the prostate tissue affected by adenocarcinoma (Grade IV). This dataset contains 342 cells.
+ {% include TSNE_PC3.html %}
+ {% include phases_pc3.html %}
 
 
 
