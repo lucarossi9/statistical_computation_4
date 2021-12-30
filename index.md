@@ -102,7 +102,19 @@ We use the least square error as the optimization target with L2 regularization,
 $$
 \underset{\mathbf{w}_{i}, \mathbf{v}}{\operatorname{argmin}} \sum_{n=1}^{N}||\mathbf{y}_{n}-\hat{\mathbf{y}}_{n}||_{2}^{2}+\sum_{i} \alpha_{i}||\mathbf{W}_{i}||_{L}^{2}+\beta||\mathbf{V}||_{L}^{2}
 $$
-. Where $$W$$ is the weight matrix of the encoder and $$V$$ is the weight matrix of the decoder. The network is implemented using Keras with TensorFlow, which optimizes the parameters using gradient descent.
+. Where $$W$$ is the weight matrix of the encoder and $$V$$ is the weight matrix of the decoder. The network is implemented using Keras with TensorFlow, which optimizes the parameters using gradient descent.7
+
+### Autoencoders results
+
+Using the model previously presented, we tried to identify the phase of the cells by infering the pseudo time of the circular path modelling the cell cycle. In particular, after having obtained the pseudotime, we divided the cell cycle in three main phases: g0/g1, s and g2/m. Then, we could approach the problem as a multiclassification problem and therefore we could be able to compute the accuracies when Cyclum model is applied to the three different datasets. Here below we report the results.
+
+|                  | pc3 dataset | mb dataset | H9 dataset |
+|------------------|-------------|------------|------------|
+| Cyclum model [1] | 0.793       | 0.779      | 0.593      |
+
+Table: Cyclum results
+
+As we can see the model is performing quite well on the pc3 and mb datasets, while his accuracy is smaller than $$0.6$$ for the H9 dataset.
 
 # Autoencoders with residual neural networks
 --------------------------------------------------
