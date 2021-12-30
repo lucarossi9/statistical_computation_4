@@ -39,6 +39,7 @@ The cell cycle is the most fundamental biological process underlying the existen
 # Previous results
 The Cyclum program analyzes a cell-gene expression matrix using an autoencoder network, which projects the cells onto a nonlinear periodic trajectory, where the
 pseudo-times of the cells in a periodic process can be more accurately determined than with linear approaches, such as PCA. Cyclum can be used to identify genes associated with the periodic process and additionally the program can treat the inferred periodic process as a confounder and deconvolve its effects from scRNA-seq data.[1]
+
 Cyclum is a model-based approach that fits the data to predefined circular manifolds, this design makes it more robust to handle random noise and small sample sizes, these features make Cyclum useful to constructing the Human Cell Atlas, the Human Tumor Atlas, and other cell ontologies.[1]
 # Dataset description and preprocessing
 ---------------------------------------------------------------
