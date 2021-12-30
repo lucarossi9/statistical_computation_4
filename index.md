@@ -114,6 +114,17 @@ Another model which we decided to implement was a variant of the autoencoder bas
 The advantage of skipping layers in neural networks lies in the fact that when neural networks are deep, we could face the **Degradation problem**. This problem is widely known since He et al. [4] published for the first time a paper proposing an innovative approach to solve this issue. They discovered that adding more layers to deep neural networks could lead to a decrease in performance (degradation problem). The authors mitigated this problem by adding shortcuts between layers, allowing the network to decrease the information loss through the propagation since identity functions were added to the network. This technique is now widely used because it permits the use of deeper neural networks without paying the information loss price. In our case we used 
 
 
+
+### Results Residual autoencoder
+
+|                      | pc3 dataset | mb dataset | H9 dataset |
+|----------------------|-------------|------------|------------|
+| residual autoencoder | 0.759       | 0.742      | 0.648      |
+| Cyclum model [1]     | 0.793       | 0.779      | 0.593      |
+
+As we can observe from the table of the results above, using residual autoencoder allows us to gain $$0.055$ in accuracy in H9 dataset. However, we loose $$0.034$$ and $$0.037$$ in accuracy in the pc3 and mb datasets respectively.
+
+
 #  GPLVM
 --------------------------------
 
