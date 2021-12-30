@@ -69,19 +69,18 @@ Finally, as suggested by our supervisor, we applied a standardization technique 
 
 # Second dataset
 
-The dataset is composes of 930 cell, across three cell lines. The cell lines consist of transformed cell populations with the ability to divide indefinitely. They have great utility in research and have led to numerous important discoveries throughout medicine. In particular, the three cell type we’re considering are H9, MDA-MB-231 and PC3. For each of these cell lines we dispose of a dataset with a certain number of cell, each of that is charachterized by its name (index value) and its description given by 253 genes (columns). For each cell we also are provided with the cycle phases they are in, that can be G0/G1,S or G2/M, which has been found measuring the DNA content. The proportion of cells in phases varied between the cells, for example the percentage of cells in the G0/G1 phase is 54% for the PC-3 and 73% for the H9.
+The dataset is composes of 930 cell, across three cell lines. The cell lines consist of transformed cell populations with the ability to divide indefinitely. They have great utility in research and have led to numerous important discoveries throughout medicine. In particular, the three cell type we’re considering are H9, MDA-MB-231 and PC3. For each of these cell lines we dispose of a dataset with a certain number of cell, each of that is charachterized by its name (index value) and its description given by 253 genes (columns). For each cell we also are provided with the cycle phases they are in, that can be G0/G1,S or G2/M, which has been found measuring the DNA content. The proportion of cells in G0/G1 phases varied from 54% of PC-3 cells to 73% of H9 cells.
 
 The 253 genes are the result of a filtering process applied on a total of 333 genes. The cell cycle associated genes are 119/333, which provide information of the entire cell cycle. The non-cell-cycle associated genes are 214/333 and have primary roles in the inflammatory response and housekeeping controls.
 
-In the scatter plots below we applied TSNE method (t-distributed Stochastic Neighbor Embedding), which is a technique for dimensionality reduction that is particularly well suited for the visualization of high-dimensional datasets.
 
-- __H9 (HTB-176)__: is a cutaneous human cell affected by lymphoma desease. This dataset contains 227 cells.
+- __H9 (HTB-176)__: is a cutaneous human cell of the prostate tissue affected by lymphoma desease. This dataset contains 361 cells.
  {% include TSNE_H9.html %}
  {% include phases_h9.html %}
--	__MDA-MB-231 (HTB-26)__: is an epithelial human cell of the breast tissue (Mammary gland) affected by adenocarcinoma. This dataset contains 342 cells.
+-	__MDA-MB-231 (HTB-26)__: is an epithelial human cell of the breast tissue (Mammary gland) affected by adenocarcinoma. This dataset contains 227 cells.
  {% include TSNE_MB.html %}
  {% include phases_mb.html %}
--	__PC3 (CRL-1435)__: is an epithelial human cell of the prostate tissue affected by adenocarcinoma (Grade IV). This dataset contains 361 cells.
+-	__PC3 (CRL-1435)__: is an epithelial human cell of the prostate tissue affected by adenocarcinoma (Grade IV). This dataset contains 342 cells.
  {% include TSNE_PC3.html %}
  {% include phases_pc3.html %}
 
@@ -132,9 +131,11 @@ Using the model previously presented, we tried to identify the phase of the cell
 |------------------|-------------|------------|------------|
 | Cyclum model [1] | 0.793       | 0.779      | 0.593      |
 
-Table: Cyclum results
+Table: *Cyclum results*
 
 As we can see the model is performing quite well on the pc3 and mb datasets, while his accuracy is smaller than $$0.6$$ for the H9 dataset.
+
+Moreover, we applied Cyclum model also to CHLA9 dataset. As we have explained before, we don't have the phase of the cells (the labels) of this dataset and therefore we cannot check the correctness of the results of the predicted pseudo-times. However, the autoencoder seems to be working well since we reach a final mean squared error (between the inputs and the low dimensional representation) of $$0.35$$ which is small compared to the average vector norm of the inputs which is $$1.47$$.
 
 # Autoencoders with residual neural networks
 --------------------------------------------------
@@ -220,6 +221,12 @@ As for the other models we report the results in accuracy when the GPLVM is appl
 Table: *Results GPLVM model*
 
 As we can see, we obtain an improvement in the accuracies for pc3 and H9 datasets. **Overall the model seems to work even better than the Cyclum**. Indeed we gain almost $$0.01$$ of accuracy in the first dataset and $$0.036$$ in H9 dataset even if we loose $$0.16$$ of accuracy in the mb dataset.
+
+# Conclusions
+---------------------------------------------------
+
+The project, carried out in collaboration with the lab of computational biology of EPFL, focuses on predicting the phases of the cell cycle given as input a sparse dataset containing information about different genes present in the cells. Inspired by the approach used by Liang et al. [1], we tried several unsupervised Machine Learning models to learn the pseudo-time of the phase: a one dimensional, non linear and periodical representation of the cell. We started by reproducing Cyclum, the autoencoder model using sine and cosine as the activation functions in the decoder to capture the periodicity of the pseudo-times. We applied Cyclum to three different and labelled datasets: pc3, mb and H9 datasets reaching great accuracies. Additionally, we used this model to label the CHLA9 dataset as required by our supervisor. Moreover, we tried to improve Cyclum by implementing a deeper autoencoder with residual neural networks in the encoder part. The performance of this second model were comparable to the Cyclum's one, even if we assist to an improvement in the accuracy in the H9 dataset and a decrease for the pc3 and mb datasets. Finally we proposed a different approach using a gaussian process latent variable model. In this case we noticed an overall improvement in the accuracy of our model.
+
 
 # References
 --------------------------------------------------
