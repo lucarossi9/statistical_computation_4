@@ -122,6 +122,8 @@ The advantage of skipping layers in neural networks lies in the fact that when n
 | residual autoencoder | 0.759       | 0.742      | 0.648      |
 | Cyclum model [1]     | 0.793       | 0.779      | 0.593      |
 
+Table: *Results residual autoencoder model*
+
 As we can observe from the table of the results above, using residual autoencoder allows us to gain $$0.055$ in accuracy in H9 dataset. However, we loose $$0.034$$ and $$0.037$$ in accuracy in the pc3 and mb datasets respectively.
 
 
@@ -181,7 +183,9 @@ As for the other models we report the results in accuracy when the GPLVM is appl
 | GPLVM            | 0.802       | 0.763      | 0.629      |
 | Cyclum model [1] | 0.793       | 0.779      | 0.593      |
 
-As we can see, we obtain an improvement in the accuracies for pc3 and H9 datasets. Overall the model seems to work even better than the Cyclum. Indeed we gain almost $$0.01$$ of accuracy in the first dataset and $$0.036$$ in H9 dataset even if we loose $$0.16$$ of accuracy in the mb dataset.
+Table: *Results GPLVM model*
+
+As we can see, we obtain an improvement in the accuracies for pc3 and H9 datasets. **Overall the model seems to work even better than the Cyclum**. Indeed we gain almost $$0.01$$ of accuracy in the first dataset and $$0.036$$ in H9 dataset even if we loose $$0.16$$ of accuracy in the mb dataset.
 
 # References
 --------------------------------------------------
