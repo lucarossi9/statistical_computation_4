@@ -41,6 +41,7 @@ The cell cycle is the most fundamental biological process underlying the existen
 In the following part we will show the two datasets we used for our project. The two databases contained cells information, in particular the second one contains information about the cell phase while the first one doesn't. For this reason we used the second one to create the model, while in the first one we tried to detect the cell phase with our model.
 
 # First dataset
+<center>
 
 |            | cell 1 | cell 2 | cell 3 | cell 4 | ... |
 |------------|--------|--------|--------|--------|-----|
@@ -51,7 +52,7 @@ In the following part we will show the two datasets we used for our project. The
 | ...        | ...    | ...    | ...    | ...    | ... |
 
 Table: *First rows and columns of CHLA9 dataset*
-
+<center/>
 The dataset used in our analysis is *CHLA9.loom*, containing information about more than 5000 different cells. Notice that the initial format of our data is a loom format, designed to efficiently hold large omics datasets. As shown in the table above, each column of the dataset describes a different cell and it is named and identified by a unique string, part of which corresponds to the DNA sequence of the cell. For each column of the dataset (for each cell) we have more than 60000 positive natural numbers associated with it. Each of these numbers represents a specific count of genes inside the cell. Finally, for each cell, we also have an attribute called "TotalUMIs" (one of the counts) representing the sum of the aforementioned counts. This number is often introduced in omic datasets since most of the gene counts are zero: our dataset is **sparse**.
 
 | ![dataset_sparsity](assets/img/Dataset_sparsity.png) | 
