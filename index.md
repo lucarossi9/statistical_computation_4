@@ -239,7 +239,7 @@ $$
 p(y^*|y) = \int \int p(y^*|x, f_x)p(f_x|x)p(x)dxdf_x
 $$
  </center><br/>
- In order to compute the posterior in close form we make the same assumption as in the classical GPs.
+ We make the same assumption as in the classical GPs and compute the posterior using Variational Inference.
  - The noise distribution $$p(y^* \rvert x, f) \sim \epsilon $$ is  Gaussian with homogeneous variance.
  - The distribution of the latent factor is given by $$p(x) \sim \mathcal{N}(\mu(x),\Sigma)$$ for some covariance function $$\Sigma$$
  - The distribution over the function space $$\sim \mathcal{N}(\mu(x), K(x, x))$$. We encode our prior knowledge about the problem in the kernel function K.
@@ -254,7 +254,17 @@ A crucial point in GPLVM is to set the prior over the latent space and the funct
 <br/><center>
 $$k\left(x_{a}, x_{b}\right)=\sigma^{2} \exp \left(-\frac{2}{\ell^{2}} \sin ^{2}\left(\pi \frac{\left|x_{a}-x_{b}\right|}{p}\right)\right)             
 $$</center><br/>             
-For the latent factors, we used Gaussians to be able to marginalize in closed form. This should no be a big assumption as we do not have parametric restrictions on the function $$f(x) = y$$ (e.g the Gaussian can be implicitely transformed by $$f$$). Nevertheless we still have to set the mean. If previous information is available, like noisy observations of the cells changepoint (ref) it is always better to use that. However in the case that previous information is not available we propose to set the prior using Uniform Manifold Approximation and Projection techniques (UMAP).
+For the latent factors, we used Gaussians to be able to marginalize in closed form. This should no be a big assumption as we do not have parametric restrictions on the function $$f(x) = y$$ (e.g the Gaussian can be implicitely transformed by $$f$$). Nevertheless we still have to set the mean. If previous information is available, like noisy observations of the cells changepoint (ref) it is always better to use that. However in the case that previous information is not available we propose to set the prior using Uniform Manifold Approximation and Projection techniques (UMAP). <br/>
+
+UMAP is a novel manifold learning technique  for general non-linear dimensionality reduction. It is constructed from a theoretical framework based in Riemannian geometry and it allows to  perform embeddings to non-Euclidean spaces (like the unit circle). The only general assumption of UMAP are that
+
+- The data is uniformly distributed in the low dimensional manifold
+
+- The metric can be approximated as locally constant
+
+- The manifold is locally connected
+
+Although the assumptions may seem very strong they are not. In the setting of Riemannian geometry the first assumption can be easily tackled.  For any data distribution with respect to the inherited metric, we can find a Riemannian metric such that the  data is approximately uniformly distributed. Regarding the second assumption, it just says that for every point there exists some neighborhood on which the metric is approximately constant. This can be satisfied without any consequences in a finite data setting. Finally, the last assumption basically means that we cannot have a point that is completely isolated from the rest, but we can still have a non-connected manifold.
 
 ### Results GPLVM
 
