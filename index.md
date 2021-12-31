@@ -137,13 +137,20 @@ Table: *Cyclum results*
 
 As we can see the model is performing quite well on the pc3 and mb datasets, while his accuracy is smaller than $$0.6$$ for the H9 dataset.
 
-Moreover, we applied Cyclum model also to CHLA9 dataset. As we have explained before, we don't have the phase of the cells (the labels) of this dataset and therefore we cannot check the correctness of the results of the predicted pseudo-times. However, the autoencoder seems to be working well since we reach a final mean squared error (between the inputs and the low dimensional representation) of $$0.35$$ which is small compared to the average vector norm of the inputs which is $$1.47$$.
+We present here an histogram with the distribution of the predicted phases of mb dataset and the real phases of the cells (plotted with different colors). The best predictions for this dataset were given by the cyclum model.
 
-We present here an histogram with the predicted phases of mb dataset, the best predictions for this dataset were given by the cyclum model.
-
-| ![histogram of predicted phases](assets/images/MB_hist.png) | 
+| ![histogram of predicted phases for mb](assets/images/MB_hist.png) | 
 |:--:| 
 | *histogram of the predicted results for mb dataset* |
+
+Moreover, we applied Cyclum model also to CHLA9 dataset. As we have explained before, we don't have the phase of the cells (the labels) of this dataset and therefore we cannot check the correctness of the results of the predicted pseudo-times. However, the autoencoder seems to be working well since we reach a final mean squared error (between the inputs and the low dimensional representation) of $$0.35$$ which is small compared to the average vector norm of the inputs which is $$1.47$$.
+From the histogram below you can see that the distribution of the predicted pseudo times, we can notice that its distribution is almost uniform.
+
+| ![histogram of predicted phases for chla9](assets/images/CHLA_hist.png) | 
+|:--:| 
+| *histogram of the predicted results for CHLA9 dataset* |
+
+
 
 # Autoencoders with residual neural networks
 --------------------------------------------------
