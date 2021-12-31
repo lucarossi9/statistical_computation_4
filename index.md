@@ -147,7 +147,7 @@ Moreover, we applied Cyclum model also to CHLA9 dataset. As we have explained be
 # Autoencoders with residual neural networks
 --------------------------------------------------
 
-Another model which we decided to implement was a variant of the autoencoder, that could make the previous method more robust. Like a standard autoencoder, the model is made up of an encoder and a decoder part but, this time, the **residual neural network** approach is applied to the encoder part. The approach consists of adding skipping layers shortcuts between the blocks of the encoder as shown in the image below. In addition the activation functions of the encoder are changed by rectified linear units and the decoder activations are substituted by $sin(x)^2 + x$. The modifications that we propose are driven by the following problems that could appear when using  the autoencoder proposed by Liang.
+Another model which we decided to implement was a variant of the autoencoder, that could make the previous method more robust. Like a standard autoencoder, the model is made up of an encoder and a decoder part but, this time, the **residual neural network** approach is applied to the encoder part. The approach consists of adding skipping layers shortcuts between the blocks of the encoder as shown in the image below. In addition the activation functions of the encoder are changed by rectified linear units and the decoder activations are substituted by $$sin(x)^2 + x$$. The modifications that we propose are driven by the following problems that could appear when using  the autoencoder proposed by Liang.
 
 | ![residual neural nets](assets/img/residual_neural_network.png) | 
 |:--:| 
@@ -159,7 +159,7 @@ Another model which we decided to implement was a variant of the autoencoder, th
 
 - **Vanishing gradients**: When we apply the chain rule during backpropagation in neural networks the gradient decreases/increases exponentially with the number of layers which produces no change in the parameters when applying gradient descent. As a result we must be very careful when choosing an activation function. The hyperbolic tangent used in Liang saturates at -1 and 1, where the derivative approach 0. In order to solve this issue we use rectified linear units (Relu), that always have derivative  1 when the input is positive, avoiding any shrinkage during backpropagation. In addition, when the inputs are negative they are set to zero, introducing sparsity that has been shown to be very benefitial in the context of neural networks (cite)
 
-- **Bad local minima:** We have already explained that the weight space symmetry of neural networks leads to an a undesirable loss landscape that contains many singularities. This behaviour is already present in monotonic activations like relu or tanh, but if we change them by periodic functions the situation can get worse  as the number of parameters inducing the same predictor will become much larger, generating infinitely more local minima. Moreover (reference) shows that these local minima have usually a high cost in sinusoidal activations (which is not the case in other activations).  To overcome this issue but still capture the periodicity of the cell processes we propose to add $x$ to the bottleneck activations ($$sin(x), cos(x)$$) so that we have a monotonic activation. Finally we want to make sure that the activation can capture well the nonlinearities, but  this could not be the case for the choseen activations when we are around 0. For example $sin(x)$ behaves almost like $$x$$ for sufficiently small values of $$x$$, making the network approach a linear network when the inputs of the bottleneck are close to zeros. What we propose here is to take $$sin(x)^2$$ to make sure that the activation stays in a  nonlinear regime.
+- **Bad local minima:** We have already explained that the weight space symmetry of neural networks leads to an a undesirable loss landscape that contains many singularities. This behaviour is already present in monotonic activations like relu or tanh, but if we change them by periodic functions the situation can get worse  as the number of parameters inducing the same predictor will become much larger, generating infinitely more local minima. Moreover (reference) shows that these local minima have usually a high cost in sinusoidal activations (which is not the case in other activations).  To overcome this issue but still capture the periodicity of the cell processes we propose to add $$x$$ to the bottleneck activations ($$sin(x), cos(x)$$) so that we have a monotonic activation. Finally we want to make sure that the activation can capture well the nonlinearities, but  this could not be the case for the choseen activations when we are around 0. For example $$sin(x)$$ behaves almost like $$x$$ for sufficiently small values of $$x$$, making the network approach a linear network when the inputs of the bottleneck are close to zeros. What we propose here is to take $$sin(x)^2$$ to make sure that the activation stays in a  nonlinear regime.
 
 
 
@@ -214,10 +214,10 @@ where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sig
 
 The image above explains the GPLVM, in particular $$X$$ is the latent variable, $$y_n$$ is the manifest one and the arrows represent the dependency relation between variables.
 The GPLVM derives from the Gaussian Process but it defines also a prior over the latent factor $$x$$, for this reason, $$p(y\vert x,\theta)$$ can be obtained by using Bayesian theorem and integrating out $$f$$, then it can maximize the marginal likelihood with respect to $$x$$ and the hyper-parameter $$\theta$$.
-Furthermore, the Besyan marginalization becomes:
-$$
+Furthermore, the Besyan marginalization becomes: 
+<math>
 p(y^\star \vert y)=\int \int p(y^\star \vert x ,f)p(f\vert x)p(x)dxdf
-$$
+</math>
 where $$p(x)\sim \mathcal{N}(0,\Sigma)$$.
 
 The following animated image shows ... (pau you should add something)
