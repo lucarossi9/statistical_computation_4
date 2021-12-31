@@ -185,9 +185,9 @@ The __Gaussian process__ attempts to describe a directional dependency between a
 More formally, we say that stochastic process $$\{S_x;x\in \mathcal{X}\}$$ is a Gaussian process if for every finite set of indices $$x_1,...,x_n$$ in the index set $$\mathcal{X}$$, $$\left(S_{x_1},...,S_{x_n}\right)$$ is a multivariate Gaussian distribution. A Gaussian Process  is completely determined with mean $$m(x)$$ and co-variance functions $$k(x,x^\star)$$ such that $$\left(S_{x_1},...,S_{x_n}\right) \sim \mathcal{N}(\mu_X,K_{XX})$$ (where $$\mu$$ is often considered as zero). Then we can study $$y=f(x)+\epsilon$$, where $f(x)$ will be a Gaussian process and $$\epsilon \sim \mathcal{N}(0,\sigma^2)$$ is simply a noise term. In this case $$y$$ is distributed as $$\mathcal{N}(m(x),K(x,x)+\sigma^2I)$$, because of the noise factor.
 
 To infer the relationship between $$x$$ and $$y$$, it considers a training set $$\mathcal{D} = \{(x_i,y_i), i=1,...,n\}$$ and a testing set $$\{x_i^\star, i=1,...,n\}$$, , in particular it wants to learn $$f$$ in order to make predictions on $$f(x^\star)$$. It takes advantage of the marginal likelihood function to compute the posterior distribution of $$y^*$$ for $$x^*$$ conditioned on the information of the data $$\mathcal{D}$$. <br/>
-$$\begin{align}
+$$\begin{center}
 p(y^*|\mathcal{D}, x^*) = \int p(y^*|x^*, f)p(f|D)df
-\end{align}$$
+\end{center}$$
 <br/>
 which can be defined because $$f$$ is a GP. The $$\theta$$ variable represent some hyper-parameters contained in the Kernel function and in the noise $$\sigma$$, maximazing the log-likelihood it obtains the optimal value for $$\theta$$. The prediction can be made because the $$f_{\star}$$ distribution is:
 $$p(f_{\star}\vert, x, x^{\star}, \theta) = \mathcal{N}(K_{\star}(K+\sigma^2I)^{-1}y, K_{\star\star}-K_{\star}(K+\sigma^2I)^{-1}K_{\star})$$.
