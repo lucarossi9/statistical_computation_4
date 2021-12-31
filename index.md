@@ -36,11 +36,6 @@ The cell cycle is the most fundamental biological process underlying the existen
 * **G2** phase in which the cell checks if there is any DNA damage within the chromosomes. In case of any anomaly, the cell will repair the DNA or trigger the apoptosis of the cell.
 * **M** (mitotic phase) which consists of nuclear division. Mitosis is the process by which a eukaryotic cell separates itself into two identical daughter cells.
 
-# Previous results
-The Cyclum program analyzes a cell-gene expression matrix using an autoencoder network, which projects the cells onto a nonlinear periodic trajectory, where the
-pseudo-times of the cells in a periodic process can be more accurately determined than with linear approaches, such as PCA. Cyclum can be used to identify genes associated with the periodic process and additionally the program can treat the inferred periodic process as a confounder and deconvolve its effects from scRNA-seq data.[1]
-
-Cyclum is a model-based approach that fits the data to predefined circular manifolds, this design makes it more robust to handle random noise and small sample sizes, these features make Cyclum useful to constructing the Human Cell Atlas, the Human Tumor Atlas, and other cell ontologies.[1]
 # Dataset description and preprocessing
 ---------------------------------------------------------------
 In the following part we will show the two datasets we used for our project. The two databases contained cells information, in particular the second one contains information about the cell phase while the first one doesn't. For this reason we used the second one to create the model, while in the first one we tried to detect the cell phase with our model.
@@ -168,7 +163,6 @@ Another model which we decided to implement was a variant of the autoencoder, th
 |                      | pc3 dataset | mb dataset | H9 dataset |
 |----------------------|-------------|------------|------------|
 | residual autoencoder | 0.759       | 0.742      | 0.648      |
-| Cyclum model [1]     | 0.793       | 0.779      | 0.593      |
 
 Table: *Results residual autoencoder model*
 
@@ -248,11 +242,27 @@ As for the other models we report the results in accuracy when the GPLVM is appl
 |                  | pc3 dataset | mb dataset | H9 dataset |
 |------------------|-------------|------------|------------|
 | GPLVM            | 0.802       | 0.763      | 0.629      |
-| Cyclum model [1] | 0.793       | 0.779      | 0.593      |
 
 Table: *Results GPLVM model*
 
 As we can see, we obtain an improvement in the accuracies for pc3 and H9 datasets. **Overall the model seems to work even better than the Cyclum**. Indeed we gain almost $$0.01$$ of accuracy in the first dataset and $$0.036$$ in H9 dataset even if we loose $$0.16$$ of accuracy in the mb dataset.
+
+# Previous results
+The Cyclum program analyzes a cell-gene expression matrix using an autoencoder network, which projects the cells onto a nonlinear periodic trajectory, where the
+pseudo-times of the cells in a periodic process can be more accurately determined than with linear approaches, such as PCA. Cyclum can be used to identify genes associated with the periodic process and additionally the program can treat the inferred periodic process as a confounder and deconvolve its effects from scRNA-seq data.[1]
+
+Cyclum is a model-based approach that fits the data to predefined circular manifolds, this design makes it more robust to handle random noise and small sample sizes, these features make Cyclum useful to constructing the Human Cell Atlas, the Human Tumor Atlas, and other cell ontologies.[1]
+
+Table summary to compare our result with previous approaches:
+
+|                  | pc3 dataset | mb dataset | H9 dataset |
+|------------------|-------------|------------|------------|
+| GPLVM            | 0.802       | 0.763      | 0.629      |
+| Cyclum model     | 0.793       | 0.779      | 0.593      |
+| PCA              | 0.448       | 0.482      | 0.489      |
+| oscope           | 0.504       | 0.401      | 0.458      |
+| reCAT            | 0.695       | 0.591      | 0.617      |
+| Cyclops          | 0.446       | 0.395      | 0.515      |
 
 # Conclusions
 ---------------------------------------------------
