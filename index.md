@@ -225,9 +225,9 @@ p(y^*|y) = \int \int p(y^*|x, f_x)p(f_x|x)p(x)dxdf_x
 $$
  </center><br/>
  In order to compute the posterior in close form we make the same assumption as in the classical GPs.
- -$$p(y^*|x, f) \sim \epsilon$$ is the distribution of the noise, that we assume to be Gaussian with homogeneous variance.
- -$$p(x) \sim \mathcal{N}(0,\Sigma)$$ for some covariance function $$\Sigma$$, is the distribution of the latent factor.
- -$$p(f_x|x) \sim \mathcal{N}(\mu(x), K(x, x))$$ is the distribution over the function space. We encode our prior knowledge about the problem in the kernel function K.
+ * $$p(y^*|x, f) \sim \epsilon$$ is the distribution of the noise, that we assume to be Gaussian with homogeneous variance.
+ * $$p(x) \sim \mathcal{N}(0,\Sigma)$$ for some covariance function $$\Sigma$$, is the distribution of the latent factor.
+ * $$p(f_x|x) \sim \mathcal{N}(\mu(x), K(x, x))$$ is the distribution over the function space. We encode our prior knowledge about the problem in the kernel function K.
 
 The next image shows a representation of the GPLVM as a probabilistic graphical model, in particular $$X$$ is the latent variable, $$y_n$$ is the manifest one and the arrows represent the dependency relation between variables.
 
@@ -237,8 +237,8 @@ The next image shows a representation of the GPLVM as a probabilistic graphical 
 
 A crucial point in GPLVM is to set the prior over the latent space and the function space. In the function space the choice is quite clear as we want to favor the periodicity of the relationship between $$x$$ and $$y$$. As a result we used a periodic kernel with flexible hyperparameter
 <br/><center>
-k\left(x_{a}, x_{b}\right)=\sigma^{2} \exp \left(-\frac{2}{\ell^{2}} \sin ^{2}\left(\pi \frac{\left|x_{a}-x_{b}\right|}{p}\right)\right)             
-</center><br/>             
+$$k\left(x_{a}, x_{b}\right)=\sigma^{2} \exp \left(-\frac{2}{\ell^{2}} \sin ^{2}\left(\pi \frac{\left|x_{a}-x_{b}\right|}{p}\right)\right)             
+$$</center><br/>             
 For the latent factors, we used Gaussians to be able to marginalize in closed form. This should no be a big assumption as we do not have parametric restrictions on the function $$f(x) = y$$ (e.g the Gaussian can be implicitely transformed by $$f$$). Nevertheless we still have to set the mean. If previous information is available, like noisy observations of the cells changepoint (ref) it is always better to use that. However in the case that previous information is not available we propose to set the prior using Uniform Manifold Approximation and Projection techniques (UMAP).
 
 ### Results GPLVM
