@@ -225,10 +225,10 @@ p(y^*|y) = \int \int p(y^*|x, f_x)p(f_x|x)p(x)dxdf_x
 $$
  </center><br/>
  In order to compute the posterior in close form we make the same assumption as in the classical GPs.
- <br/><center> $$p(y^*|x, f) \sim \epsilon$$ is the distribution of the noise, that we assume to be Gaussian with homogeneous variance.</center><br/>
- <br/><center> $$\sim \mathcal{N}(0,\Sigma)$$ for some covariance function $$\Sigma$$, is the distribution of the latent factor. </center><br/>
- <br/><center> $$\sim \mathcal{N}(\mu(x), K(x, x))$$ is the distribution over the function space. We encode our prior knowledge about the problem in the kernel function K. </center><br/>
-
+ - The noise distribution $$p(y^*|x, f) \sim \epsilon$$ is  Gaussian with homogeneous variance.
+ - The distribution of the latent factor is given by $$p(x) \sim \mathcal{N}(\mu(x),\Sigma)$$ for some covariance function $$\Sigma$$
+ - The distribution over the function space $$\sim \mathcal{N}(\mu(x), K(x, x))$$. We encode our prior knowledge about the problem in the kernel function K.
+ 
 The next image shows a representation of the GPLVM as a probabilistic graphical model, in particular $$X$$ is the latent variable, $$y_n$$ is the manifest one and the arrows represent the dependency relation between variables.
 
 | ![latent](assets/img/latent.jpg) | 
