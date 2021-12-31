@@ -225,7 +225,7 @@ p(y^*|y) = \int \int p(y^*|x, f_x)p(f_x|x)p(x)dxdf_x
 $$
  </center><br/>
  In order to compute the posterior in close form we make the same assumption as in the classical GPs.
- - The noise distribution $$p(y^*|x, f) \sim \epsilon$$ is  Gaussian with homogeneous variance.
+ - The noise distribution $$p(y^*|x, f)$$ is  Gaussian with homogeneous variance.
  - The distribution of the latent factor is given by $$p(x) \sim \mathcal{N}(\mu(x),\Sigma)$$ for some covariance function $$\Sigma$$
  - The distribution over the function space $$\sim \mathcal{N}(\mu(x), K(x, x))$$. We encode our prior knowledge about the problem in the kernel function K.
  
