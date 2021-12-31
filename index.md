@@ -256,13 +256,14 @@ Cyclum is a model-based approach that fits the data to predefined circular manif
 Table summary to compare our result with previous approaches:
 
 |                  | pc3 dataset | mb dataset | H9 dataset |
-|------------------|-------------|------------|------------|
-| GPLVM            | 0.802       | 0.763      | 0.629      |
-| Cyclum model     | 0.793       | 0.779      | 0.593      |
-| PCA              | 0.448       | 0.482      | 0.489      |
-| oscope           | 0.504       | 0.401      | 0.458      |
-| reCAT            | 0.695       | 0.591      | 0.617      |
-| Cyclops          | 0.446       | 0.395      | 0.515      |
+|----------------------|-------------|------------|------------|
+| GPLVM                | 0.802       | 0.763      | 0.629      |
+| Cyclum model         | 0.793       | 0.779      | 0.593      |
+| PCA                  | 0.448       | 0.482      | 0.489      |
+| oscope               | 0.504       | 0.401      | 0.458      |
+| reCAT                | 0.695       | 0.591      | 0.617      |
+| Cyclops              | 0.446       | 0.395      | 0.515      |
+| Residual autoencoder | 0.759       | 0.742      | 0.648      |
 
 # Conclusions
 ---------------------------------------------------
