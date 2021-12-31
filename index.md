@@ -137,7 +137,7 @@ Table: *Cyclum results*
 
 As we can see the model is performing quite well on the pc3 and mb datasets, while his accuracy is smaller than $$0.6$$ for the H9 dataset.
 
-The histogram below presents the predicted pseudo times for mb dataset. We coloured the distribution to make clear which are the real phases of the cells.
+The histogram below presents the distribution of predicted pseudo times for mb dataset using cyclum. We coloured the distribution to make clear which are the real phases of the cells.
 Cyclum was the model that best fit the mb dataset.
 
 | ![histogram of predicted phases for mb](assets/images/MB_hist.png) | 
@@ -182,7 +182,7 @@ Table: *Results residual autoencoder model*
 
 As we can observe from the table of the results above, using residual autoencoder allows us to gain $$0.055$$ in accuracy in H9 dataset. However, we loose $$0.034$$ and $$0.037$$ in accuracy in the pc3 and mb datasets respectively.
 
-The histogram below presents the predicted pseudo times for h9 dataset. We coloured the distribution to make clear which are the real phases of the cells.
+The histogram below presents the distribution of predicted pseudo times for h9 dataset using residual autoencoder. We coloured the distribution to make clear which are the real phases of the cells.
 Residual autoencoder was the model that best fit the h9 dataset.
 
 | ![histogram of predicted times for h9](assets/images/h9_hist.png) | 
@@ -268,7 +268,7 @@ Table: *Results GPLVM model*
 
 As we can see, we obtain an improvement in the accuracies for pc3 and H9 datasets. **Overall the model seems to work even better than the Cyclum**. Indeed we gain almost $$0.01$$ of accuracy in the first dataset and $$0.036$$ in H9 dataset even if we loose $$0.16$$ of accuracy in the mb dataset.
 
-The histogram below presents the predicted pseudo times for pc3 dataset. We coloured the distribution to make clear which are the real phases of the cells.
+The histogram below presents the distribution of predicted pseudo times for pc3 dataset using GPLVM. We coloured the distribution to make clear which are the real phases of the cells.
 GPLVM was the model that best fit the pc3 dataset.
 
 | ![histogram of predicted times for pc3](assets/images/Pc3_hist.png) | 
