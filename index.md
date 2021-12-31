@@ -137,19 +137,19 @@ Table: *Cyclum results*
 
 As we can see the model is performing quite well on the pc3 and mb datasets, while his accuracy is smaller than $$0.6$$ for the H9 dataset.
 
-The histogram below presents the predicted pseudo times for mb dataset. We coloured the distributions to make clear which are the real phases of the cells.
-cyclum was the model that best predicted the mb dataset.
+The histogram below presents the predicted pseudo times for mb dataset. We coloured the distribution to make clear which are the real phases of the cells.
+Cyclum was the model that best fit the mb dataset.
 
 | ![histogram of predicted phases for mb](assets/images/MB_hist.png) | 
 |:--:| 
-| *histogram of the predicted results for mb dataset* |
+| *histogram of the predicted results for mb dataset using cyclum* |
 
 Moreover, we applied Cyclum model also to CHLA9 dataset. As we have explained before, we don't have the phase of the cells (the labels) of this dataset and therefore we cannot check the correctness of the results of the predicted pseudo-times. However, the autoencoder seems to be working well since we reach a final mean squared error (between the inputs and the low dimensional representation) of $$0.35$$ which is small compared to the average vector norm of the inputs which is $$1.47$$.
 From the histogram below you can see the distribution of the predicted pseudo times, we can notice that its distribution is almost uniform.
 
 | ![histogram of predicted phases for chla9](assets/images/CHLA_hist.png) | 
 |:--:| 
-| *histogram of the predicted results for CHLA9 dataset* |
+| *histogram of the predicted results for CHLA9 dataset using cyclum* |
 
 
 
@@ -182,12 +182,12 @@ Table: *Results residual autoencoder model*
 
 As we can observe from the table of the results above, using residual autoencoder allows us to gain $$0.055$$ in accuracy in H9 dataset. However, we loose $$0.034$$ and $$0.037$$ in accuracy in the pc3 and mb datasets respectively.
 
-The histogram below presents the predicted pseudo times for h9 dataset. We coloured the distributions to make clear which are the real phases of the cells.
-Residual autoencoder was the model that best predicted the h9 dataset.
+The histogram below presents the predicted pseudo times for h9 dataset. We coloured the distribution to make clear which are the real phases of the cells.
+Residual autoencoder was the model that best fit the h9 dataset.
 
 | ![histogram of predicted times for h9](assets/images/h9_hist.png) | 
 |:--:| 
-| *histogram of the predicted results for h9 dataset* |
+| *histogram of the predicted results for h9 dataset using residual autoencoder* |
 
 
 #  GPLVM
@@ -268,12 +268,12 @@ Table: *Results GPLVM model*
 
 As we can see, we obtain an improvement in the accuracies for pc3 and H9 datasets. **Overall the model seems to work even better than the Cyclum**. Indeed we gain almost $$0.01$$ of accuracy in the first dataset and $$0.036$$ in H9 dataset even if we loose $$0.16$$ of accuracy in the mb dataset.
 
-The histogram below presents the predicted pseudo times for pc3 dataset. We coloured the distributions to make clear which are the real phases of the cells.
-GPLVM was the model that best predicted the pc3 dataset.
+The histogram below presents the predicted pseudo times for pc3 dataset. We coloured the distribution to make clear which are the real phases of the cells.
+GPLVM was the model that best fit the pc3 dataset.
 
 | ![histogram of predicted times for pc3](assets/images/Pc3_hist.png) | 
 |:--:| 
-| *histogram of the predicted results for pc3 dataset* |
+| *histogram of the predicted results for pc3 dataset using GPLVM* |
 
 # Previous results
 The Cyclum program analyzes a cell-gene expression matrix using an autoencoder network, which projects the cells onto a nonlinear periodic trajectory, where the
