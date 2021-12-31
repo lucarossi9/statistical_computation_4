@@ -182,49 +182,64 @@ To perform the period inference from the RNA sequences we will use a Bayesan met
 
 The __Gaussian process__ attempts to describe a directional dependency between a covariate variable $$x$$ and the corresponding observable output $$y$$. For doing that, it sets a Gaussian distribution for $$p(y\vert x)$$ which describes the dependency of an observable $$y$$ for each input $$x \in X$$. This distribution varies in $$x$$, so that we end up with infinite degrees of freedom. In other words, the idea of Gaussian Processes is to learn a distribution over the functions $$f: X \mapsto Y$$.
 
-More formally, we say that stochastic process $$\{S_x;x\in \mathcal{X}\}$$ is a Gaussian process if for every finite set of indices $$x_1,...,x_n$$ in the index set $$\mathcal{X}$$, $$\left(S_{x_1},...,S_{x_n}\right)$$ is a multivariate Gaussian distribution. A Gaussian Process  is completely determined with mean $$m(x)$$ and co-variance functions $$k(x,x^\star)$$ such that $$\left(S_{x_1},...,S_{x_n}\right) \sim \mathcal{N}(\mu_X,K_{XX})$$ (where $$\mu$$ is often considered as zero). Then we can study $$y=f(x)+\epsilon$$, where $f(x)$ will be a Gaussian process and $$\epsilon \sim \mathcal{N}(0,\sigma^2)$$ is simply a noise term. In this case $$y$$ is distributed as $$\mathcal{N}(m(x),K(x,x)+\sigma^2I)$$, because of the noise factor.
+More formally, we say that stochastic process $$\{S_x;x\in \mathcal{X}\}$$ is a Gaussian process if for every finite set of indices $$x_1,...,x_n$$ in the index set $$\mathcal{X}$$, $$\left(S_{x_1},...,S_{x_n}\right)$$ is a multivariate Gaussian distribution. A Gaussian Process  is completely determined with mean $$m(x)$$ and co-variance functions $$k(x,x^\star)$$ such that $$\left(S_{x_1},...,S_{x_n}\right) \sim \mathcal{N}(\mu_X,K_{XX})$$ (where $$\mu$$ is often considered as zero). Then we can study $$y=f(x)+\epsilon$$, where $$f(x)$$ will be a Gaussian process and $$\epsilon \sim \mathcal{N}(0,\sigma^2)$$ is simply a noise term. In this case $$y$$ is distributed as $$\mathcal{N}(m(x),K(x,x)+\sigma^2I)$$, because of the noise factor.
 
 To infer the relationship between $$x$$ and $$y$$, it considers a training set $$\mathcal{D} = \{(x_i,y_i), i=1,...,n\}$$ and a testing set $$\{x_i^\star, i=1,...,n\}$$, , in particular it wants to learn $$f$$ in order to make predictions on $$f(x^\star)$$. It takes advantage of the marginal likelihood function to compute the posterior distribution of $$y^*$$ for $$x^*$$ conditioned on the information of the data $$\mathcal{D}$$. <br/><center>
 $$
 p(y^*|\mathcal{D}, x^*) = \int p(y^*|x^*, f)p(f|D)df
 $$
 </center><br/>
-which can be defined because $$f$$ is a GP. The $$\theta$$ variable represent some hyper-parameters contained in the Kernel function and in the noise $$\sigma$$, maximazing the log-likelihood it obtains the optimal value for $$\theta$$. The prediction can be made because the $$f_{\star}$$ distribution is:
-$$p(f_{\star}\vert, x, x^{\star}, \theta) = \mathcal{N}(K_{\star}(K+\sigma^2I)^{-1}y, K_{\star\star}-K_{\star}(K+\sigma^2I)^{-1}K_{\star})$$.
-Furthermore, it uses the Bayesian marginalization:
-$$
-p(y^\star \vert x^\star ,x,y)=\int p(y^\star \vert x^\star ,f)p(f\vert x,y)df
-$$
+which can be solved in closed form because both terms in the integral are Gaussian, leading to the posterior distribution:
+</br><center>
+$$p(y_{\star}\vert, x, x^{\star}, \mathcal{D}) = \mathcal{N}(K_{\star}(K+\sigma^2I)^{-1}y, K_{\star\star}-K_{\star}(K+\sigma^2I)^{-1}K_{\star})$$.
+</center></br>
 
 | ![gp](assets/img/gauspro.png) | 
 |:--:| 
 | *Gaussian Process* |
 
+The kernels defining the prior distribution usually have hyperparameters that we may want to tune in the case there is no enough prior information to set them. As opposed to many other machine learning methods, to optimize hyperparameters we do not have to resort to grid search or other gradient-free methodologies. Instead, we can take advantage of the previous equation to maximize the marginal likelihood $$p(Y|X)$$ with respet to the kernel hyperparameters<br/><center>
+$$
+    \log p(Y|X) = -\frac{1}{2}Y^T(K_{XX}+\sigma^2I)^{-1}Y-\frac{1}{2}\log|K_{XX}+\sigma^2 I|-\frac{N}{2}\log(2\pi)
+$$
+</center><br/>
+The first term measures the fit of the data, the second term is a model complexity term, and the last one is just a constant. This is very important, as it tells us that gaussian processes when tunned using marginal likelihood are already considering a tradeoff betwen model complexity and data fit. <br/>
+ 
+The following animated image shows how Gaussian processes behave from the prior to the posterior as they observe input data. 
+![Alt Text](assets/img/gpr_animation.gif) 
+
+The classical setting for Gaussian processes is a supervised problem where we are given pairs of inputs/outputs and we want to infer their relationship. However in our problem we only observe some sequences $$y$$ but have no available examples of the corresponding periods. 
+ 
 The __Latent variable model__ generally refers to a statistical model that relates a set of variables (so-called manifest variables) to a set of latent variables under the assumption that the responses on the manifest variables are controlled by the latent variables. 
 
 
-The __GPLVM__  goal is to learn the low dimensional representation $$X^{N\times Q}$$ (latent variable) of the data matrix $$Y^{N\times D}$$ , where N and D are the number and dimensionality of training samples, respectively, and Q<<D. The generation process of the training sample $$y_i$$ is:
+The __GPLVM__  goal is to learn the low dimensional representation $$X^{N\times Q}$$ (latent variable) of the data matrix $$Y^{N\times D}$$ , where N and D are the number and dimensionality of training samples, respectively, and Q<<D. The generating process of the training sample $$y_i$$ is still: <br/><center>
 $$
 y_i = f(x_i)+ \epsilon
 $$
-where $$\epsilon$$ is the noise with gaussian distribution $$ \mathcal{N}(0,\sigma^2)$$.
+ </center><br/>
+ Motivated by classical GPs, Gaussian Process Latent Variable Models define a prior over the latent factors $$x$$ and apply the same system of marginalization.
+ <br/><center>
+ $$
+p(y^*|y) = \int \int p(y^*|x, f_x)p(f_x|x)p(x)dxdf_x
+$$
+ </center></br>
+ In order to compute the posterior in close form we make the same assumption as in the classical GPs.
+ -  $$p(y^*|x, f) \sim \epsilon$$ is the distribution of the noise, that we assume to be Gaussian with homogeneous variance.
+ -  $$p(x) \sim \mathcal{N}(0,\Sigma)$$ for some covariance function $$\Sigma$$, is the distribution of the latent factor.
+ -  $$p(f_x|x) \sim \mathcal{N}(\mu(x), K(x, x))$$ is the distribution over the function space. We encode our prior knowledge about the problem in the kernel function K.
+
+The next image shows a representation of the GPLVM as a probabilistic graphical model, in particular $$X$$ is the latent variable, $$y_n$$ is the manifest one and the arrows represent the dependency relation between variables.
 
 | ![latent](assets/img/latent.jpg) | 
 |:--:| 
 | *Latent and manifest variables* |
 
-The image above explains the GPLVM, in particular $$X$$ is the latent variable, $$y_n$$ is the manifest one and the arrows represent the dependency relation between variables.
-The GPLVM derives from the Gaussian Process but it defines also a prior over the latent factor $$x$$, for this reason, $$p(y\vert x,\theta)$$ can be obtained by using Bayesian theorem and integrating out $$f$$, then it can maximize the marginal likelihood with respect to $$x$$ and the hyper-parameter $$\theta$$.
-Furthermore, the Besyan marginalization becomes: 
-<math>
-p(y^\star \vert y)=\int \int p(y^\star \vert x ,f)p(f\vert x)p(x)dxdf
-</math>
-where $$p(x)\sim \mathcal{N}(0,\Sigma)$$.
-
-The following animated image shows ... (pau you should add something)
-![Alt Text](assets/img/gpr_animation.gif)
-
-
+A crucial point in GPLVM is to set the prior over the latent space and the function space. In the function space the choice is quite clear as we want to favor the periodicity of the relationship between $$x$$ and $$y$$. As a result we used a periodic kernel with flexible hyperparameter
+<br/><center>
+k\left(x_{a}, x_{b}\right)=\sigma^{2} \exp \left(-\frac{2}{\ell^{2}} \sin ^{2}\left(\pi \frac{\left|x_{a}-x_{b}\right|}{p}\right)\right)             
+</center><br/>             
+For the latent factors, we used Gaussians to be able to marginalize in closed form. This should no be a big assumption as we do not have parametric restrictions on the function $$f(x) = y$$ (e.g the Gaussian can be implicitely transformed by $$f$$). Nevertheless we still have to set the mean. If previous information is available, like noisy observations of the cells changepoint (ref) it is always better to use that. However in the case that previous information is not available we propose to set the prior using Uniform Manifold Approximation and Projection techniques (UMAP).
 
 ### Results GPLVM
 
