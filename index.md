@@ -139,6 +139,12 @@ As we can see the model is performing quite well on the pc3 and mb datasets, whi
 
 Moreover, we applied Cyclum model also to CHLA9 dataset. As we have explained before, we don't have the phase of the cells (the labels) of this dataset and therefore we cannot check the correctness of the results of the predicted pseudo-times. However, the autoencoder seems to be working well since we reach a final mean squared error (between the inputs and the low dimensional representation) of $$0.35$$ which is small compared to the average vector norm of the inputs which is $$1.47$$.
 
+We present here an histogram with the predicted phases of mb dataset, the best predictions for this dataset were given by the cyclum model.
+
+| ![histogram of predicted phases](assets/images/MB_hist.png) | 
+|:--:| 
+| *histogram of the predicted results for mb dataset* |
+
 # Autoencoders with residual neural networks
 --------------------------------------------------
 
